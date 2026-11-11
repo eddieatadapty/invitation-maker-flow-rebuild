@@ -174,6 +174,17 @@ html.au-embed .phone,html.au-embed .phone *{visibility:visible}
 html.au-embed .phone{position:fixed;top:0;left:0;margin:0;z-index:99;box-shadow:none;max-width:none}
 html.appmode #ads,html.tourmode #ads{display:none!important}
 /* DUO:END */
+/* per-ad recommendations under each phone */
+.au-duo-recs{margin-top:10px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.au-rec-v{margin:0 0 2px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--st-ink2)}
+.au-rec{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;width:100%;text-align:left;background:var(--st-ground);border:1px solid var(--st-hair);border-radius:14px;padding:11px 12px;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.au-rec:hover,.au-rec.on{border-color:var(--st-accent);background:var(--st-card)}
+.au-rec>i{grid-row:span 2;font-style:normal;font-size:11.5px;font-weight:700;color:#fff;background:var(--st-accent);border-radius:999px;padding:3px 7px;align-self:start}
+.au-rec>span{display:flex;flex-direction:column;gap:3px}
+.au-rec b{font-size:14px;line-height:1.3}
+.au-rec em{font-style:normal;font-size:13px;line-height:1.4;color:var(--st-ink2)}
+.au-rec mark{grid-column:2;justify-self:start;background:var(--st-mark);padding:1px 6px;border-radius:4px;font-size:13px;font-weight:700;color:inherit}
+.au-rec mark small{font-weight:500;margin-left:5px;color:var(--st-ink2)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
@@ -551,7 +562,121 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 .im-proof{flex-wrap:nowrap;white-space:nowrap}
 .im-ofc strong,.im-rsvpb,.im-tools>span{white-space:nowrap}
 .im-tools{gap:10px}
+/* ---- per-search versions ---- */
+.im-qb{gap:12px}
+.im-qtop{display:flex;align-items:center;gap:10px;min-height:30px}
+.im-dots{display:flex;gap:5px;margin-right:auto}
+.im-dots i{width:22px;height:5px;border-radius:3px;background:rgba(0,0,0,.12)}
+.im-dots i.on{background:var(--b-primary)}
+.im-skip{border:0;background:none;color:rgba(0,0,0,.55);font:500 14px var(--b-font);cursor:pointer}
+.im-q{margin:6px 0 0;font:700 26px/1.2 var(--b-font);letter-spacing:-.01em}
+.im-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.im-tile{display:flex;flex-direction:column;align-items:flex-start;gap:8px;border:1.5px solid rgba(0,0,0,.1);border-radius:16px;background:var(--b-white);padding:16px 14px;font:600 15px var(--b-font);color:rgba(0,0,0,.87);cursor:pointer;text-align:left}
+.im-tile i{font-style:normal;font-size:28px;line-height:1}
+.im-tile.on{border-color:var(--b-primary);background:var(--b-lav2)}
+.im-lbl{margin:4px 0 0;font:600 14px var(--b-font)}
+.im-ages{display:flex;gap:8px}
+.im-ages button{flex:1;border:1.5px solid rgba(0,0,0,.1);border-radius:12px;background:var(--b-white);padding:10px 0;font:600 16px var(--b-font);color:rgba(0,0,0,.87);cursor:pointer}
+.im-ages button.on{background:var(--b-primary);border-color:var(--b-primary);color:var(--b-primary-ink)}
+.im-form{display:flex;flex-direction:column;gap:9px}
+.im-fld{display:flex;flex-direction:column;gap:3px;border:1.5px solid rgba(0,0,0,.1);border-radius:12px;background:var(--b-white);padding:9px 12px}
+.im-fld small{font:500 11.5px var(--b-font);color:rgba(0,0,0,.5)}
+.im-fld b{font:600 15px var(--b-font)}
+.im-up{display:flex;align-items:center;gap:12px;border:1.5px dashed var(--b-primary);border-radius:12px;background:var(--b-lav2);padding:11px 12px}
+.im-upi{flex:none;width:36px;height:36px;border-radius:50%;background:var(--b-white);display:grid;place-items:center;font:700 17px var(--b-font);color:var(--b-primary)}
+.im-up div{display:flex;flex-direction:column;gap:2px}
+.im-up b{font:600 14.5px var(--b-font)}.im-up small{font:400 12px var(--b-font);color:rgba(0,0,0,.55)}
+.im-magic{border:0;border-radius:12px;background:var(--b-lav);color:var(--b-primary);font:600 13.5px var(--b-font);padding:10px 12px;cursor:pointer;text-align:left}
+.im-cgrids{flex:1;min-height:0;display:flex}
+.im-cgrids>.im-grid{flex:1}
+.im-ready{margin:0;align-self:center;background:var(--b-greenbg);color:var(--b-greenink);border-radius:999px;padding:5px 12px;font:600 13px var(--b-font)}
+.im-done{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;background:var(--b-white);border-radius:14px;padding:10px 12px}
+.im-done li{font:500 13px var(--b-font);padding-left:22px;position:relative}
+.im-done li::before{content:"✓";position:absolute;left:0;color:var(--b-greenink);font-weight:700}
+.im-mbb{gap:12px}
+.im-mbrow{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.im-mbimg{width:42%;flex:none;object-fit:cover;object-position:50% 0;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.im-mbrow .im-form{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}.im-mbrow .im-fld:last-child{grid-column:span 2}.im-mbcard{width:62%;box-shadow:0 6px 22px rgba(0,0,0,.14)}
+.im-mbrow .im-fld b{font-size:14px}
+.im-mcb{gap:9px;background:var(--b-grad)}
+.im-nxt{border:0;border-radius:999px;background:var(--b-green);color:var(--b-white);font:600 13.5px var(--b-font);padding:6px 13px;cursor:pointer}
+.im-mbox{background:var(--b-white);border-radius:14px;padding:9px 12px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.im-mbox small{display:block;font:500 12px var(--b-font);color:rgba(0,0,0,.6)}
+.im-mbox p{margin:3px 0 0;font:500 13px/1.35 var(--b-font)}
+.im-mtools{display:flex;gap:8px;margin-top:7px}
+.im-mtools span{flex:1;text-align:center;background:var(--b-ground);border-radius:999px;padding:5px 0;font:600 12.5px var(--b-font)}
+.im-mres{position:relative;flex:1;min-height:0;align-self:stretch;background:transparent}
+.im-mres img{width:100%;height:100%;object-fit:contain;object-position:50% 0;display:block}
+.im-bm{position:absolute;top:8px;right:14%;background:var(--b-white);color:var(--b-primary);border-radius:999px;padding:3px 9px;font:600 11.5px var(--b-font);box-shadow:0 1px 6px rgba(0,0,0,.15)}
+.im-pwa{gap:9px}
+.im-pwcard{position:relative;align-self:center;width:52%;height:34%;flex:none;margin-top:4px;box-shadow:0 8px 26px rgba(0,0,0,.16);background:var(--b-white)}
+.im-pwcard img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block}
+.im-rdy{position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);white-space:nowrap;background:var(--b-green);color:var(--b-white);border-radius:999px;padding:4px 11px;font:600 12px var(--b-font)}
+.im-pwa .im-h1{margin-top:10px;font-size:21px}
+.im-pwbb{gap:9px;padding-top:64px}
+.im-h1l{text-align:left;font-size:22px;padding-right:24px}
+.im-gcard{background:var(--b-white);border:1.5px solid var(--b-greenbg);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:9px;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+.im-gch{display:flex;align-items:center;gap:10px}
+.im-gch img{width:42px;height:58px;object-fit:cover;object-position:50% 0;border-radius:4px}
+.im-gch div{display:flex;flex-direction:column;gap:2px}
+.im-gch b{font:600 15px var(--b-font)}.im-gch small{font:400 12px var(--b-font);color:rgba(0,0,0,.55)}
+.im-gcard .im-guests li{padding:7px 0}
+.im-ex{font:500 11px var(--b-font);font-style:normal;color:rgba(0,0,0,.45)}
+.im-pwc{gap:9px}
+.im-ballc{width:44%}
+.im-cmp{width:100%;border-collapse:collapse;font:500 13px var(--b-font)}
+.im-cmp th{font:600 12.5px var(--b-font);padding:6px 4px;color:rgba(0,0,0,.55)}
+.im-cmp td{padding:7px 4px;border-top:1px solid rgba(0,0,0,.07);text-align:center;color:rgba(0,0,0,.4)}
+.im-cmp td:first-child{text-align:left;color:rgba(0,0,0,.87)}
+.im-cmp .im-cp{color:var(--b-primary);font-weight:700;background:var(--b-lav2)}
+.im-cmp th.im-cp{border-radius:10px 10px 0 0}
+.im-plansr{flex-direction:row}
+.im-plansr .im-plan{padding:10px}
+.im-plansr .im-save{display:none}
 /* SCREENS:END */
+/* MOTION:START — the niconico-style layer (bterzic123.github.io/niconico-flow-rebuild): a dark hero in the app's
+   own colour with drifting words and a floating phone fan, scroll reveals, count-up numbers, and a live walkthrough
+   inside the three ad phones (a finger glides to each button, presses it, the phones move on). Respects reduced motion. */
+.au-top-hero.au-mx{background:var(--st-accent);color:#fff;margin:0 12px;border-radius:0 0 28px 28px;padding-bottom:0;isolation:isolate}
+.au-top-hero.au-mx::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 95%);mask-image:linear-gradient(180deg,#000 30%,transparent 95%)}
+.au-top-hero.au-mx .au-display,.au-top-hero.au-mx .au-lede,.au-top-hero.au-mx .au-eyebrow,.au-top-hero.au-mx .au-byline{color:#fff}
+.au-top-hero.au-mx .au-lede span,.au-top-hero.au-mx .au-byline{color:rgba(255,255,255,.72)}
+.au-top-hero.au-mx .au-eyebrow i{background:var(--st-hi)}
+.au-top-hero.au-mx .au-btn{background:#fff;color:var(--st-accent)}
+.au-top-hero.au-mx .au-lnk{color:#fff}
+.au-mx-words{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;-webkit-mask-image:radial-gradient(ellipse 38% 34% at 50% 30%,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse 38% 34% at 50% 30%,transparent 45%,#000 100%)}
+.au-mx-words span{position:absolute;left:100%;white-space:nowrap;font-weight:700;color:rgba(255,255,255,.11);animation:au-fly linear infinite}
+@keyframes au-fly{to{transform:translateX(calc(-100vw - 120%))}}
+.au-mx .au-hp img{animation:au-float 6s ease-in-out infinite}
+.au-mx .au-hp.au-c img{animation-delay:-2s}.au-mx .au-hp.au-r img{animation-delay:-4s}
+@keyframes au-float{50%{transform:translateY(-10px)}}
+.au-mx-icon{position:absolute;right:clamp(16px,6vw,90px);top:clamp(70px,12vw,130px);width:clamp(54px,6vw,84px);border-radius:22%;box-shadow:0 10px 0 rgba(0,0,0,.18),0 18px 40px rgba(0,0,0,.25);animation:au-bob 1.6s ease-in-out infinite;z-index:1}
+@keyframes au-bob{50%{transform:translateY(-9px) rotate(-5deg)}}
+.au-mx-stats{display:grid;grid-template-columns:repeat(4,1fr);margin:12px 12px 0;border-radius:20px;background:var(--st-ground)}
+.au-mx-stats div{padding:26px 16px;text-align:center;border-left:1px solid var(--st-hair)}
+.au-mx-stats div:first-child{border-left:0}
+.au-mx-stats b{display:block;font-size:clamp(28px,3vw,38px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--st-ink)}
+.au-mx-stats span{display:block;font-size:14px;color:var(--st-ink2);margin-top:6px;line-height:1.35}
+@media (max-width:720px){.au-mx-stats{grid-template-columns:1fr 1fr}.au-mx-stats div:nth-child(3){border-left:0}.au-mx-stats div:nth-child(n+3){border-top:1px solid var(--st-hair)}.au-mx-icon{display:none}}
+/* scroll reveal */
+/* uses the separate `translate` property, never `transform`, so it can't undo a component's own transform (the trio stage is centred with one) */
+.au-rv{opacity:0;translate:0 22px;transition:opacity .7s cubic-bezier(.2,.7,.2,1),translate .7s cubic-bezier(.2,.7,.2,1)}
+.au-rv.au-in{opacity:1;translate:none}
+/* live walkthrough in the three phones */
+.au-walk{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 6px;position:sticky;top:64px;z-index:40;padding:10px 0}
+.au-walk.on{background:var(--st-card);padding:12px 16px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.au-walk button{border:0;border-radius:999px;background:var(--st-accent);color:#fff;font:600 15px/1 var(--st-font);padding:12px 18px;cursor:pointer}
+.au-walk button.on{background:var(--st-ink)}
+.au-walkbar{flex:1;min-width:240px;display:none;flex-direction:column;gap:7px}
+.au-walkbar.on{display:flex}
+.au-walkbar span{font-size:15px;line-height:1.4;color:var(--st-ink)}
+.au-walkbar i{display:block;height:4px;border-radius:4px;background:var(--st-hair);overflow:hidden}
+.au-walkbar i b{display:block;height:100%;width:0;background:var(--st-accent);transition:width .35s linear}
+.au-finger{position:absolute;z-index:30;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.35);pointer-events:none;opacity:0;transition:left .38s cubic-bezier(.2,.7,.2,1),top .38s cubic-bezier(.2,.7,.2,1),transform .12s,opacity .2s}
+.au-finger.on{opacity:1}.au-finger.press{transform:scale(.7)}
+@media (prefers-reduced-motion:reduce){.au-mx-words span,.au-mx .au-hp img,.au-mx-icon{animation:none}.au-rv{opacity:1;translate:none;transition:none}.au-finger{transition:opacity .2s}}
+html.shot .au-rv,html.phoneonly .au-rv{opacity:1;translate:none}
+/* MOTION:END */
 </style>
 </head>
 <body>
@@ -580,6 +705,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <div class="au-ctas">
       <a class="au-btn" href="#ideas">See the five ideas</a>
       <a class="au-lnk" href="#prototype">Open the prototype</a>
+      <a class="au-lnk" href="#ads" data-walk>▶ Watch it play in the phones</a>
       <button type="button" class="au-lnk au-play" id="heroVideo" hidden>Watch the 30-second walkthrough</button>
     </div>
   </div>
@@ -651,25 +777,25 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
         <h2 class="au-h2">Graduation, birthday or just “invitation”. <span>One paywall for all of them.</span></h2>
       </div>
       <div>
-        <p>We found no active Greetings Island ads in the Meta Ad Library; your paid traffic we can see is Apple Ads. In the US, between 11 October and 11 November 2026, your ad showed on <b>33 search terms</b>: an event (“graduation”, “birthday”), a general need (“invitation”, “greeting”), app names, yours among them, and a few searches from people who aren’t making an invitation at all. Yet every install opens on the same screen: <b>“Go premium”</b>, before a single design.</p><p>Flow Builder can open a different flow by the Apple Ads keyword the install came from, so the first screens show the designs they searched for, or ask what they’re celebrating when the search didn’t say.</p>
+        <p>We found no active Greetings Island ads in the Meta Ad Library; your paid traffic we can see is Apple Ads. In the US, between 11 October and 11 November 2026, your ad showed on <b>33 search terms</b>: an event (“graduation”, “birthday”), a general need (“invitation”, “greeting”), app names, yours among them, and a few searches from people who aren’t making an invitation at all. Yet every install opens on the same screen: <b>“Go premium”</b>, before a single design.</p><p>Flow Builder can open a different flow by the Apple Ads keyword the install came from. Below, each of three searches gets its own version, not just its own headline: a different first question, a different way to make the card, and a different paywall, each with three recommendations of its own.</p>
       </div>
     </div>
     <div class="au-duo-stats"><div><b>33</b><span>US Apple Ads search terms your ad showed on, 11 Oct–11 Nov 2026</span></div><div><b>5</b><span>kinds of search across them, from an event to the wrong app</span></div><div><b>1</b><span>paywall every install reaches today, before a single design</span></div></div>
     <div class="au-pf"><div class="au-pf-h"><h3>Your Apple Ads searches, sorted by intent</h3><p>33 US search terms, 11 Oct–11 Nov 2026 · share of voice and popularity per term</p></div><div class="au-pf-bar"><i style="flex:4;background:var(--st-accent)" title="Graduation"></i><i style="flex:5;background:var(--st-hi)" title="Birthdays and other events"></i><i style="flex:9;background:var(--st-ink2)" title="Invitations and cards, no event named"></i><i style="flex:9;background:var(--st-ink3)" title="App names, yours among them"></i><i style="flex:6;background:var(--st-hair)" title="Not looking for an invitation"></i></div><div class="au-pf-leg"><span><i style="background:var(--st-accent)"></i>Graduation · 4</span><span><i style="background:var(--st-hi)"></i>Birthdays and other events · 5</span><span><i style="background:var(--st-ink2)"></i>Invitations and cards, no event named · 9</span><span><i style="background:var(--st-ink3)"></i>App names, yours among them · 9</span><span><i style="background:var(--st-hair)"></i>Not looking for an invitation · 6</span></div><div class="au-pf-grid"><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/crop/t-grad.png" alt="A frame from the ad"><span class="au-pf-tag">Your best share of voice</span><span class="au-pf-n">4 search terms</span></div><div class="au-pf-bd"><div class="au-pf-hook">“graduation”</div><div class="au-pf-meta">About 32% share of voice, popularity 2.11 · also “graduations” (5%), “graduation invitation” (13%), “ceremonies” (2%)</div><dl><dt>In the ad</dt><dd>Your search ad: your icon, “Set a festive tone for your holiday gathering” and your App Store screenshots.</dd><dt>The promise</dt><dd>A graduation invitation, now.</dd><dt>Today it lands on</dt><dd>“Go premium”, Trustpilot’s 4.8 and $23.49 a year, before any graduation design.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="a">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/crop/t-kaitlin.png" alt="A frame from the ad"><span class="au-pf-tag">Most popular term on the list</span><span class="au-pf-n">5 search terms</span></div><div class="au-pf-bd"><div class="au-pf-hook">“birthday”</div><div class="au-pf-meta">About 1% share of voice, popularity 12.13, the highest of all 33 · also “quinceaneras” (3%), “婚” (marriage, in Chinese, 33%), “mother's day ecard &amp; greetings” (14%), “fathers day 2026 image” (9%)</div><dl><dt>In the ad</dt><dd>The same search ad, whatever they typed.</dd><dt>The promise</dt><dd>An invitation for this event.</dd><dt>Today it lands on</dt><dd>The same paywall as every other search.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="b">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/crop/t-laura.png" alt="A frame from the ad"><span class="au-pf-tag">Big searches, low share</span><span class="au-pf-n">9 search terms</span></div><div class="au-pf-bd"><div class="au-pf-hook">“invitation”</div><div class="au-pf-meta">About 2% share of voice, popularity 5.12 · also “greeting” (18%, popularity 8.74), “greetings” (27%), “send custom cards” (1%), “rsvp cards” (1%), “creatacard” (20%) and Russian and Arabic searches for invitations and cards</div><dl><dt>In the ad</dt><dd>The same search ad, whatever they typed.</dd><dt>The promise</dt><dd>An invitation or a card, for something they haven’t told you yet.</dd><dt>Today it lands on</dt><dd>The same paywall as every other search.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="c">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/brand/appstore-icon.jpg" alt="A frame from the ad"><span class="au-pf-tag">Brand defence</span><span class="au-pf-n">9 search terms</span></div><div class="au-pf-bd"><div class="au-pf-hook">“invitation maker, cards &amp; rsvp”</div><div class="au-pf-meta">About 44% share of voice, popularity 1.53 · “invitation maker: cards &amp; rsvp” 39% · other invitation-maker names 1–8%</div><dl><dt>In the ad</dt><dd>The same search ad, whatever they typed.</dd><dt>The promise</dt><dd>The app they already know.</dd><dt>Today it lands on</dt><dd>The same paywall as every other search.</dd></dl><div class="au-pf-go"><span>No phone of its own: it would open the “invitation” flow, which asks what they’re celebrating.</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/brand/appstore-shot-1.jpg" alt="A frame from the ad"><span class="au-pf-tag">Spend that can’t convert</span><span class="au-pf-n">6 search terms</span></div><div class="au-pf-bd"><div class="au-pf-hook">“invitae”</div><div class="au-pf-meta">About 15% share of voice, popularity 0.59 · also “nautik for kubernetes”, “disney checklist”, “eventscribe”, “business card maker·”, “poster maker : crea”</div><dl><dt>In the ad</dt><dd>The same search ad, whatever they typed.</dd><dt>The promise</dt><dd>Something else: a genetic-testing company, a developer tool, a theme-park checklist.</dd><dt>Today it lands on</dt><dd>The same paywall as every other search.</dd></dl><div class="au-pf-go"><span>No flow: these are terms to stop bidding on.</span></div></div></article></div><p class="au-pf-note">Counts are search terms, not spend. Share of voice is how often your ad showed on that search; popularity is Apple’s search-volume score. The data is account-level, so it may include Wishwave as well as Invitation Maker. Three searches get a phone of their own below.</p></div>
-    <div class="au-duo-h"><h3>Three searches, three flows</h3><p>Left to right: someone who searched “graduation”, “birthday” and just “invitation”. Tap <b>Today’s paywall</b> to see where all three land now, then tap through the proposal, or jump straight to an idea.</p></div>
+    <div class="au-duo-h"><h3>Three searches, three versions</h3><p>Left to right: someone who searched “graduation”, “birthday” and just “invitation”. Each phone is its own version of your onboarding, with its own recommendations underneath. Tap <b>Today’s paywall</b> to see where all three land now, then tap through, or open a recommendation.</p></div>
     <div class="au-duo-steps" id="duoSteps" aria-label="Steps, in every phone"></div>
     <div class="au-duo-ideas" id="duoIdeas" aria-label="The five ideas, in every phone"></div>
     <p class="au-duo-stepcap" id="duoStepCap"></p>
-    <div class="au-duo-tog" role="group" aria-label="Which ad"><button type="button" data-duoone="a" class=on>Search 1 · “graduation”</button><button type="button" data-duoone="b">Search 2 · “birthday”</button><button type="button" data-duoone="c">Search 3 · “invitation”</button></div>
+    <div class="au-duo-tog" role="group" aria-label="Which ad"><button type="button" data-duoone="a" class=on>A · “graduation”</button><button type="button" data-duoone="b">B · “birthday”</button><button type="button" data-duoone="c">C · “invitation”</button></div>
     <div class="au-duo au-n3" id="duoStage" data-one="a">
-      <div class="au-duo-ph au-duo-a"><p class="au-duo-pill"><b>Apple Ads search</b><span>graduation</span></p><div class="au-duo-fr" id="duoFra"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapa"></p></div><div class="au-duo-ph au-duo-b"><p class="au-duo-pill"><b>Apple Ads search</b><span>birthday</span></p><div class="au-duo-fr" id="duoFrb"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapb"></p></div><div class="au-duo-ph au-duo-c"><p class="au-duo-pill"><b>Apple Ads search</b><span>invitation</span></p><div class="au-duo-fr" id="duoFrc"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapc"></p></div>
+      <div class="au-duo-ph au-duo-a"><p class="au-duo-pill"><b>Apple Ads search</b><span>graduation</span></p><div class="au-duo-fr" id="duoFra"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapa"></p><div class="au-duo-recs" id="duoReca" aria-label="Recommendations for this ad"></div></div><div class="au-duo-ph au-duo-b"><p class="au-duo-pill"><b>Apple Ads search</b><span>birthday</span></p><div class="au-duo-fr" id="duoFrb"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapb"></p><div class="au-duo-recs" id="duoRecb" aria-label="Recommendations for this ad"></div></div><div class="au-duo-ph au-duo-c"><p class="au-duo-pill"><b>Apple Ads search</b><span>invitation</span></p><div class="au-duo-fr" id="duoFrc"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapc"></p><div class="au-duo-recs" id="duoRecc" aria-label="Recommendations for this ad"></div></div>
     </div>
     <p class="au-duo-hint">Tap through any phone and the others follow. A dot marks the screens that differ by ad.</p>
     <table class="au-duo-tbl" id="duoTbl"></table>
-    <div class="au-duo-next"><div><b>Day 1</b><h4>Pass the Apple Ads keyword into Adapty</h4><p>After a one-time SDK setup, the keyword each install came from arrives as a user attribute and picks the flow at first open. No app release.</p></div><div><b>Week 1</b><h4>One flow per kind of search</h4><p>Graduation and birthday open on their own designs; “invitation”, “greeting” and your own name open on the question “what are you celebrating?”.</p></div><div><b>Week 2</b><h4>Judge each search on what it earns</h4><p>Each search’s flow against today’s, on trials, paid subscriptions and what each install from that search earns, so bids follow the searches that pay.</p></div></div>
-    <p class="au-adn"><b>Your Apple Ads, in one paragraph.</b> You show on about 44% and 39% of US searches for your own app names (“invitation maker, cards &amp; rsvp”, “invitation maker: cards &amp; rsvp”), so more than half the people looking for you meet someone else’s ad first. On “birthday”, the most popular term on your list, you show on about 1%; on “graduation”, 32%. Some terms bring people who aren’t making an invitation: “invitae” (a genetic-testing company, 15%), “nautik for kubernetes”, “disney checklist”. That data is account-level, so it can’t tell Invitation Maker from Wishwave. We found no active Greetings Island ads in the Meta Ad Library on 11 November 2026. This layer carries no range: only a test per search can give one.</p>
+    <div class="au-duo-next"><div><b>Day 1</b><h4>Pass the Apple Ads keyword into Adapty</h4><p>After a one-time SDK setup, the keyword each install came from arrives as a user attribute and picks the flow at first open. No app release.</p></div><div><b>Week 1</b><h4>One version per kind of search</h4><p>Graduation opens version A, birthday version B; “invitation”, “greeting” and your own name open version C, which asks what they’re celebrating.</p></div><div><b>Week 2</b><h4>Judge each version on what it earns</h4><p>Each version against today’s flow, on trials, paid subscriptions and what each install from that search earns, so bids and designs follow the searches that pay.</p></div></div>
+    <p class="au-adn"><b>Your Apple Ads, in one paragraph.</b> You show on about 44% and 39% of US searches for your own app names (“invitation maker, cards &amp; rsvp”, “invitation maker: cards &amp; rsvp”), so more than half the people looking for you meet someone else’s ad first. On “birthday”, the most popular term on your list, you show on about 1%; on “graduation”, 32%. Some terms bring people who aren’t making an invitation: “invitae” (a genetic-testing company, 15%), “nautik for kubernetes”, “disney checklist”. That data is account-level, so it can’t tell Invitation Maker from Wishwave. We found no active Greetings Island ads in the Meta Ad Library on 11 November 2026. The searches themselves carry no range: only a test per search can give one. The ranges on each version’s recommendations are Adapty’s expected effect for that kind of change, and they overlap with the five ideas.</p>
   </div>
-  <script type="application/json" id="duoData">{"flows": [{"k": "a", "ad": "a", "chan": "Apple Ads search", "label": "Search 1 · “graduation”", "pill": "graduation"}, {"k": "b", "ad": "b", "chan": "Apple Ads search", "label": "Search 2 · “birthday”", "pill": "birthday"}, {"k": "c", "ad": "c", "chan": "Apple Ads search", "label": "Search 3 · “invitation”", "pill": "invitation"}], "rows": [{"id": "search", "h": "Their search", "a": "“graduation”: your ad shows on about 32% of these US searches.", "b": "“birthday”: about 1%, on the most popular term on your list.", "c": "“invitation”: about 2%, on the third most popular term."}, {"id": "pick", "h": "First screen", "a": "Graduation designs first: Graduate, Back to School, BBQ Time.", "b": "Birthday designs first, Kids picked: Kaitlin, Macie, John.", "c": "The search names no event, so it asks “what are you celebrating?”; Wedding is shown picked, with three of your wedding designs."}, {"id": "editor", "h": "Editor", "a": "Their Graduate card, free to edit.", "b": "The Kaitlin Anderson birthday card, free to edit.", "c": "The Laura and Steven wedding card, free to edit."}, {"id": "rsvp", "h": "RSVP", "a": "“Andrea's graduation party”, with replies coming in.", "b": "“Kaitlin's 7th birthday”, with replies coming in.", "c": "“Laura &amp; Steven's wedding”, with replies coming in."}, {"id": "paywall", "h": "Paywall", "a": "“Send your graduation invite”, over 4.9 from 47,400 ratings.", "b": "“Send your birthday invite”, over 4.9 from 47,400 ratings.", "c": "“Send your wedding invite”, over 4.9 from 47,400 ratings."}], "tableTitle": "The same app, answering three different searches.", "tableSub": "The five ideas sit underneath all three. Only these screens change with what they typed; each row opens that screen in every phone.", "steps": [{"id": "search", "label": "The search"}, {"id": "today", "label": "Today’s paywall"}, {"sep": "Proposed"}, {"id": "pick"}, {"id": "editor"}, {"id": "rsvp"}, {"id": "paywall"}, {"id": "offer"}], "stepCaps": {"today": "<b>Today</b>, whatever they searched, the app opens on this paywall: “Go premium”, Trustpilot’s 4.8 out of 5, $23.49 a year with a 7-day trial, before a single design.", "offer": "Same for every search: Weekly Premium at $1.99, shown once when they close the paywall (idea 5)."}}</script>
+  <script type="application/json" id="duoData">{"flows": [{"k": "a", "ad": "a", "chan": "Apple Ads search", "label": "A · “graduation”", "pill": "graduation", "version": "Version A · Photo first", "recs": [{"step": "ask", "title": "Ask who’s graduating, with a photo", "why": "<b>Try</b> name, class year and photo right after the design, <b>because</b> a graduation card is about one person, and Magic photo designs can put them on it.", "impact": "+5–10%", "il": "CR to purchase"}, {"step": "make", "title": "Show the finished announcement first", "why": "<b>Try</b> their card filled in and ready before any price, <b>because</b> a parent pays to send the result, not to start making it.", "impact": "+5–15%", "il": "CR to purchase"}, {"step": "paywall", "title": "A paywall led by their own card", "why": "<b>Try</b> the finished card on top and the graduate’s name in the headline, <b>because</b> the reason to pay is on screen, not described.", "impact": "+5–10%", "il": "CR to purchase"}]}, {"k": "b", "ad": "b", "chan": "Apple Ads search", "label": "B · “birthday”", "pill": "birthday", "version": "Version B · Fastest to send", "recs": [{"step": "ask", "title": "Two taps: who it’s for and the age", "why": "<b>Try</b> only who and the age they’re turning, <b>because</b> “birthday” is your most popular search and a parent wants the invite done, not a quiz.", "impact": "+5–10%", "il": "CR to purchase"}, {"step": "make", "title": "Three answers on the card, then Send", "why": "<b>Try</b> name, age and date dropped onto the design with one Send button, <b>because</b> a birthday invite takes minutes and the full editor can wait.", "impact": "+5–15%", "il": "CR to purchase"}, {"step": "paywall", "title": "A paywall led by RSVPs", "why": "<b>Try</b> leading with the guest list Premium collects, <b>because</b> a birthday host needs a headcount for cake and favours more than new fonts.", "impact": "+5–10%", "il": "CR to purchase"}]}, {"k": "c", "ad": "c", "chan": "Apple Ads search", "label": "C · “invitation”", "pill": "invitation", "version": "Version C · Event first, Magic draft", "recs": [{"step": "ask", "title": "Ask what they’re celebrating first", "why": "<b>Try</b> one question before any design, <b>because</b> “invitation” names no event, and the answer picks the designs, the wording and the headline.", "impact": "+5–15%", "il": "CR to purchase"}, {"step": "make", "title": "Let Magic draft it from their details", "why": "<b>Try</b> your AI invite from their event details before the price, <b>because</b> someone without a design in mind gets a finished one in seconds.", "impact": "+5–15%", "il": "CR to purchase"}, {"step": "paywall", "title": "Free vs Premium, side by side", "why": "<b>Try</b> a two-column table of what Premium adds, <b>because</b> a generic search means they’re comparing apps, and a clear list beats a slogan.", "impact": "+5–10%", "il": "CR to purchase"}]}], "rows": [{"id": "search", "h": "Their search", "a": "“graduation”: your ad shows on about 32% of these US searches.", "b": "“birthday”: about 1%, on the most popular term on your list.", "c": "“invitation”: about 2%, on the third most popular term."}, {"id": "ask", "h": "First question", "a": "After the design: “Who’s graduating?”, name, class of 2026 and “Upload photo”.", "b": "Before any design: “Whose birthday is it?”, Kids · Babies · Men’s · Women’s, and the age they’re turning.", "c": "Before any design: “What are you celebrating?”, Wedding · Birthday · Graduation · Party."}, {"id": "pick", "h": "Their designs", "a": "Graduation designs first: Graduate, Back to School, BBQ Time.", "b": "Kids’ birthday designs first: Kaitlin, Macie, John.", "c": "Designs for the event they picked, plus “Let Magic design it from your details”."}, {"id": "make", "h": "Making the card", "a": "Their Graduate card, filled in: “Andrea’s announcement is ready”.", "b": "No editor: three answers on the Kaitlin design, then “Looks good, send it”.", "c": "Your “Create with AI” screen: their event details in, a Magic draft out."}, {"id": "rsvp", "h": "RSVP", "a": "“Andrea's graduation party”, with replies coming in.", "b": "No separate step: the guest list moves onto the paywall.", "c": "“Faith &amp; Henry’s wedding”, with replies coming in."}, {"id": "paywall", "h": "Paywall", "a": "Card first: their finished card on top, “Send Andrea’s graduation announcement”.", "b": "RSVPs first: “See who’s coming to Kaitlin’s party”, the guest list, “Every birthday this year”.", "c": "Free vs Premium: a two-column table of what Premium adds, under “Send your wedding invite”."}], "tableTitle": "Three searches, three versions of your onboarding.", "tableSub": "The five ideas sit underneath all three; the versions differ in what they ask, how the card gets made and how the paywall sells. Each row opens that step in every phone.", "steps": [{"id": "search", "label": "The search"}, {"id": "today", "label": "Today’s paywall"}, {"sep": "Proposed"}, {"id": "ask", "label": "First question", "ids": {"a": "ask-a", "b": "ask-b", "c": "ask-c"}}, {"id": "pick", "label": "Their designs"}, {"id": "make", "label": "Making the card", "ids": {"a": "make-a", "b": "make-b", "c": "make-c"}}, {"id": "rsvp", "label": "RSVP", "ids": {"b": "make-b"}}, {"id": "paywall", "label": "Paywall", "ids": {"a": "paywall-a", "b": "paywall-b", "c": "paywall-c"}}, {"id": "offer", "label": "On close"}], "stepCaps": {"today": "<b>Today</b>, whatever they searched, the app opens on this paywall: “Go premium”, Trustpilot’s 4.8 out of 5, $23.49 a year with a 7-day trial, before a single design.", "offer": "Same for every version: Weekly Premium at $1.99, shown once when they close the paywall (idea 5)."}}</script>
 </section>
 
 <section class="au-sec au-white" id="prototype">
@@ -701,53 +827,165 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
   <div class="body im-asb">
     <div class="im-sbar"><div><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><span data-show="ad:a">graduation</span><span data-show="ad:b">birthday</span><span data-show="ad:c">invitation</span></div><b>Cancel</b></div>
     <div class="im-res">
-      <div class="im-rh"><img src="assets/brand/appstore-icon.jpg" alt=""><div><b>Invitation Maker: Cards &amp; RSVP</b><small>Set a festive tone for your holiday gathering</small><em>★★★★★ <span>47K</span></em></div><button class="im-get" data-go="pick">GET</button></div>
+      <div class="im-rh"><img src="assets/brand/appstore-icon.jpg" alt=""><div><b>Invitation Maker: Cards &amp; RSVP</b><small>Set a festive tone for your holiday gathering</small><em>★★★★★ <span>47K</span></em></div><button class="im-get" data-go="next">GET</button></div>
       <p class="im-adtag"><i>Ad</i></p>
       <div class="im-shots"><img src="assets/brand/appstore-shot-1.jpg" alt=""><img data-show="ad:a" src="assets/brand/appstore-shot-8.jpg" alt=""><img data-show="ad:b" src="assets/brand/appstore-shot-3.jpg" alt=""><img data-show="ad:c" src="assets/brand/appstore-shot-9.jpg" alt=""><img src="assets/brand/appstore-shot-2.jpg" alt=""></div>
     </div>
   </div>
 </section>
 
+<!-- Version B · fastest to send: who it's for and the age, before any design -->
+<section class="scr" data-id="ask-b" data-ad="b">
+  <div class="body im-qb">
+    <div class="im-qtop"><span class="im-dots"><i class="on"></i><i></i><i></i></span><button class="im-skip" data-go="next"><span data-t="q_sk">Skip</span></button></div>
+    <h1 class="im-q"><span data-t="qb_h">Whose birthday is it?</span></h1>
+    <p class="im-sub"><span data-t="qb_s">Two taps, and your birthday designs open ready for them.</span></p>
+    <div class="im-tiles" data-hl="1 b1">
+      <button class="im-tile" data-pick="who:kids"><i>🧒</i><span data-t="k_c4">Kids</span></button>
+      <button class="im-tile" data-pick="who:babies"><i>👶</i><span data-t="k_c5">Babies</span></button>
+      <button class="im-tile" data-pick="who:men"><i>🧔</i><span data-t="k_c6">Men's</span></button>
+      <button class="im-tile" data-pick="who:women"><i>👩</i><span data-t="k_c7">Women's</span></button>
+    </div>
+    <p class="im-lbl"><span data-t="qb_t">Turning</span></p>
+    <div class="im-ages" data-hl="b1"><button data-pick="age:5">5</button><button data-pick="age:6">6</button><button data-pick="age:7">7</button><button data-pick="age:8">8</button><button data-pick="age:9">9</button><button data-pick="age:10">10</button></div>
+    <button class="im-cta" data-go="next"><span data-t="qb_c">Show their designs</span></button>
+  </div>
+</section>
+
+<!-- Version C · event first: "invitation" names no event, so ask it -->
+<section class="scr" data-id="ask-c" data-ad="c">
+  <div class="body im-qb">
+    <div class="im-qtop"><span class="im-dots"><i class="on"></i><i></i><i></i></span><button class="im-skip" data-go="next"><span data-t="q_sk">Skip</span></button></div>
+    <h1 class="im-q"><span data-t="qc_h">What are you celebrating?</span></h1>
+    <p class="im-sub"><span data-t="qc_s">We’ll open on designs for it, or Magic can make one from your details.</span></p>
+    <div class="im-tiles" data-hl="1 c1">
+      <button class="im-tile" data-pick="ev:wedding"><i>💍</i><span data-t="k_c8">Wedding</span></button>
+      <button class="im-tile" data-pick="ev:birthday"><i>🎂</i><span data-t="k_c9">Birthday</span></button>
+      <button class="im-tile" data-pick="ev:grad"><i>🎓</i><span data-t="k_c1">Graduation</span></button>
+      <button class="im-tile" data-pick="ev:party"><i>🎉</i><span data-t="k_c2">Party</span></button>
+    </div>
+    <button class="im-cta" data-go="next"><span data-t="qc_c">Continue</span></button>
+  </div>
+</section>
+
 <section class="scr" data-id="pick">
   <div class="body im-pb">
     <div class="im-nav"><span>‹</span><b data-show="ad:a"><span data-t="k_ta">Graduation invitations</span></b><b data-show="ad:b"><span data-t="k_tb">Birthday invitations</span></b><b data-show="ad:c"><span data-t="k_tc">Invitations</span></b><span>⌕</span></div>
-    <p class="im-echo" data-hl="1"><span data-show="ad:a"><span data-t="k_ea">🎓 You searched “graduation”: your designs first</span></span><span data-show="ad:b"><span data-t="k_eb">🎂 You searched “birthday”: your designs first</span></span><span data-show="ad:c"><span data-t="k_ec">✉️ You searched “invitation”: what are you celebrating?</span></span></p>
+    <p class="im-echo" data-hl="1"><span data-show="ad:a"><span data-t="k_ea">🎓 You searched “graduation”: your designs first</span></span><span data-show="ad:b"><span data-t="k_eb2">🎂 You searched “birthday”: kids’ designs first</span></span><span data-show="ad:c"><span data-show="ev:wedding"><span data-t="k_ecw">💍 Wedding designs, or let Magic make yours</span></span><span data-show="ev:birthday"><span data-t="k_ecb">🎂 Birthday designs, or let Magic make yours</span></span><span data-show="ev:grad"><span data-t="k_ecg">🎓 Graduation designs, or let Magic make yours</span></span><span data-show="ev:party"><span data-t="k_ecp">🎉 Party designs, or let Magic make yours</span></span></span></p>
     <div class="im-chips" data-show="ad:a"><span class="on"><span data-t="k_c1">Graduation</span></span><span><span data-t="k_c2">Party</span></span><span><span data-t="k_c3">Back to school</span></span></div>
     <div class="im-chips" data-show="ad:b"><span class="on"><span data-t="k_c4">Kids</span></span><span><span data-t="k_c5">Babies</span></span><span><span data-t="k_c6">Men's</span></span><span><span data-t="k_c7">Women's</span></span></div>
-    <div class="im-chips" data-show="ad:c" data-hl="1"><span class="on"><span data-t="k_c8">Wedding</span></span><span><span data-t="k_c9">Birthday</span></span><span><span data-t="k_c10">Baby shower</span></span><span><span data-t="k_c1">Graduation</span></span><span><span data-t="k_c2">Party</span></span></div>
+    <button class="im-magic" data-show="ad:c" data-go="next" data-hl="c2">✨ <span data-t="k_mg">Let Magic design it from your details</span> ›</button>
     <div class="im-grid" data-hl="1" data-show="ad:a">
-      <button class="im-tp im-big" data-go="editor"><img src="assets/crop/t-grad.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
-      <button class="im-tp" data-go="editor"><img src="assets/crop/t-school.png" alt=""><i class="im-heart">♡</i></button>
-      <button class="im-tp" data-go="editor"><img src="assets/crop/t-bbq.png" alt=""><i class="im-heart">♡</i></button>
+      <button class="im-tp im-big" data-go="next"><img src="assets/crop/t-grad.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
+      <button class="im-tp" data-go="next"><img src="assets/crop/t-school.png" alt=""><i class="im-heart">♡</i></button>
+      <button class="im-tp" data-go="next"><img src="assets/crop/t-bbq.png" alt=""><i class="im-heart">♡</i></button>
     </div>
     <div class="im-grid" data-hl="1" data-show="ad:b">
-      <button class="im-tp im-big" data-go="editor"><img src="assets/crop/t-kaitlin.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
-      <button class="im-tp" data-go="editor"><img src="assets/crop/t-macie.png" alt=""><i class="im-heart">♡</i></button>
-      <button class="im-tp" data-go="editor"><img src="assets/crop/t-john.png" alt=""><i class="im-heart">♡</i></button>
+      <button class="im-tp im-big" data-go="next"><img src="assets/crop/t-kaitlin.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
+      <button class="im-tp" data-go="next"><img src="assets/crop/t-macie.png" alt=""><i class="im-heart">♡</i></button>
+      <button class="im-tp" data-go="next"><img src="assets/crop/t-john.png" alt=""><i class="im-heart">♡</i></button>
     </div>
-    <div class="im-grid" data-hl="1" data-show="ad:c">
-      <button class="im-tp im-big" data-go="editor"><img src="assets/crop/t-laura.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
-      <button class="im-tp" data-go="editor"><img src="assets/crop/t-allison.png" alt=""><i class="im-heart">♡</i></button>
-      <button class="im-tp" data-go="editor"><img src="assets/crop/t-eliza.png" alt=""><i class="im-heart">♡</i></button>
+    <div class="im-cgrids" data-show="ad:c">
+      <div class="im-grid" data-hl="1" data-show="ev:wedding">
+        <button class="im-tp im-big" data-go="next"><img src="assets/crop/t-laura.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-allison.png" alt=""><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-eliza.png" alt=""><i class="im-heart">♡</i></button>
+      </div>
+      <div class="im-grid" data-hl="1" data-show="ev:birthday">
+        <button class="im-tp im-big" data-go="next"><img src="assets/crop/t-sammy.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-kaitlin.png" alt=""><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-john.png" alt=""><i class="im-heart">♡</i></button>
+      </div>
+      <div class="im-grid" data-hl="1" data-show="ev:grad">
+        <button class="im-tp im-big" data-go="next"><img src="assets/crop/t-grad.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-school.png" alt=""><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-bbq.png" alt=""><i class="im-heart">♡</i></button>
+      </div>
+      <div class="im-grid" data-hl="1" data-show="ev:party">
+        <button class="im-tp im-big" data-go="next"><img src="assets/crop/t-brunch.png" alt=""><i class="im-crown">♛</i><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-bbq.png" alt=""><i class="im-heart">♡</i></button>
+        <button class="im-tp" data-go="next"><img src="assets/crop/t-macie.png" alt=""><i class="im-heart">♡</i></button>
+      </div>
     </div>
     <p class="im-hint"><span data-t="k_h">Tap a design to make it yours. No paywall yet.</span></p>
   </div>
 </section>
 
-<section class="scr" data-id="editor">
-  <div class="body im-eb">
-    <div class="im-etop"><button data-back aria-label="Back">‹</button><span>↶ ↷</span><em><span data-t="e_sd">Save draft</span></em><button class="im-next" data-go="rsvp"><span data-t="e_nx">Next</span> ›</button></div>
-    <p class="im-prem">♛ <span data-t="e_pr">Premium</span></p>
-    <div class="im-card" data-hl="2"><img data-show="ad:a" src="assets/crop/t-grad.png" alt=""><img data-show="ad:b" src="assets/crop/t-kaitlin.png" alt=""><img data-show="ad:c" src="assets/crop/t-laura.png" alt=""><span class="im-sel"></span></div>
-    <p class="im-free" data-hl="2"><span data-t="e_f">✓ Edit every word, font and colour for free. Premium only when you send.</span></p>
-    <div class="im-tools"><button class="im-rsvpb" data-go="rsvp">＋ <span data-t="e_rs">Create RSVP</span></button><span><span data-t="e_t1">Edit text</span></span><span><span data-t="e_t2">Font</span></span><span><span data-t="e_t3">Size</span></span></div>
+<!-- Version A · photo first: who's graduating, after the design -->
+<section class="scr" data-id="ask-a" data-ad="a">
+  <div class="body im-qb">
+    <div class="im-qtop"><button class="im-bk" data-back aria-label="Back">‹</button><span class="im-dots"><i></i><i class="on"></i><i></i></span><button class="im-skip" data-go="next"><span data-t="q_sk">Skip</span></button></div>
+    <h1 class="im-q"><span data-t="qa_h">Who’s graduating?</span></h1>
+    <p class="im-sub"><span data-t="qa_s">We’ll put it on your Graduate card for you.</span></p>
+    <div class="im-form" data-hl="1 a1">
+      <label class="im-fld"><small data-t="qa_n">Graduate’s name</small><b>Andrea Larousse</b></label>
+      <label class="im-fld"><small data-t="qa_y">Class of</small><b>2026</b></label>
+      <div class="im-up"><span class="im-upi">⇪</span><div><b data-t="qa_p">Upload photo</b><small data-t="qa_ps">Magic photo designs can put them on the card</small></div></div>
+    </div>
+    <button class="im-cta" data-go="next"><span data-t="qa_c">Make my announcement</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="rsvp">
+<section class="scr" data-id="make-a" data-ad="a">
+  <div class="body im-eb">
+    <div class="im-etop"><button data-back aria-label="Back">‹</button><span>↶ ↷</span><em><span data-t="e_sd">Save draft</span></em><button class="im-next" data-go="next"><span data-t="e_nx">Next</span> ›</button></div>
+    <p class="im-ready" data-hl="a2">✓ <span data-t="ma_r">Andrea’s announcement is ready</span></p>
+    <div class="im-card" data-hl="a2"><img src="assets/crop/t-grad.png" alt=""></div>
+    <ul class="im-done" data-hl="a2"><li><span data-t="ma_1">Name: Andrea Larousse</span></li><li><span data-t="ma_2">Class of 2026</span></li><li><span data-t="ma_3">Their photo, on the card</span></li></ul>
+    <p class="im-free" data-hl="2"><span data-t="e_f">✓ Edit every word, font and colour for free. Premium only when you send.</span></p>
+  </div>
+</section>
+
+<!-- Version B · three answers on the card, no editor -->
+<section class="scr" data-id="make-b" data-ad="b">
+  <div class="body im-mbb">
+    <div class="im-nav"><button class="im-bk" data-back aria-label="Back">‹</button><b><span data-t="mb_t">Your invite</span></b><span></span></div>
+    <div class="im-mbrow" data-hl="b2">
+      <div class="im-form">
+        <label class="im-fld"><small data-t="mb_n">Name</small><b>Kaitlin</b></label>
+        <label class="im-fld"><small data-t="qb_t">Turning</small><b data-bind="age"></b></label>
+        <label class="im-fld"><small data-t="mb_w">When and where</small><b data-t="mb_wv">Sat · 2 pm · at home</b></label>
+      </div>
+      <div class="im-card im-mbcard"><img src="assets/crop/t-kaitlin.png" alt=""></div>
+    </div>
+    <p class="im-free" data-hl="2"><span data-t="mb_f">✓ Free to make. Premium only when you send.</span></p>
+    <button class="im-ghost"><span data-t="mb_e">Edit every detail</span></button>
+    <button class="im-cta" data-go="next"><span data-t="mb_c">Looks good, send it</span></button>
+  </div>
+</section>
+
+<!-- Version C · Magic draft from their details -->
+<section class="scr" data-id="make-c" data-ad="c">
+  <div class="body im-mcb">
+    <div class="im-nav"><button class="im-bk" data-back aria-label="Back">‹</button><b>✨ <span data-t="mc_t">Create with AI</span></b><button class="im-nxt" data-go="next"><span data-t="e_nx">Next</span> ›</button></div>
+    <div class="im-mbox" data-hl="c2"><small data-t="mc_d">Event details</small>
+      <p data-show="ev:wedding"><span data-t="mc_dw">The wedding of Faith Sanchez and Henry Grayson, Saturday, September 16th, 2026, Majestic Ballroom</span></p>
+      <p data-show="ev:birthday"><span data-t="mc_db">Margot’s 8th birthday party, 08/23/26, 6 pm, Saddlebrook Roller Rink</span></p>
+      <p data-show="ev:grad"><span data-t="mc_dg">Andrea Larousse graduates, class of 2026</span></p>
+      <p data-show="ev:party"><span data-t="mc_dp">Summertime brunch, Saturday, June 13</span></p>
+    </div>
+    <div class="im-mbox"><small data-t="mc_v">Describe your visuals</small><p data-show="ev:wedding"><span data-t="mc_vw">Soft pink flowers</span></p><p data-show="ev:birthday"><span data-t="mc_vb">Neon, roller disco</span></p><p data-show="ev:grad"><span data-t="mc_vg">Classic, with a photo</span></p><p data-show="ev:party"><span data-t="mc_vp">Bright dots</span></p><div class="im-mtools"><span data-t="mc_s">Style</span><span data-t="mc_c">Colors</span></div></div>
+    <div class="im-mres" data-hl="c2">
+      <img data-show="ev:wedding" src="assets/crop/ai-wed.png" alt="">
+      <img data-show="ev:birthday" src="assets/crop/ai-margot.png" alt="">
+      <img data-show="ev:grad" src="assets/crop/t-grad.png" alt="">
+      <img data-show="ev:party" src="assets/crop/t-brunch.png" alt="">
+      <span class="im-bm">✓ <span data-t="mc_bm">Best match</span></span>
+    </div>
+    <p class="im-free" data-hl="2"><span data-t="mb_f">✓ Free to make. Premium only when you send.</span></p>
+  </div>
+</section>
+
+<section class="scr" data-id="rsvp" data-ad="a c">
   <div class="body im-rb">
     <div class="im-nav"><button class="im-bk" data-back aria-label="Back">‹</button><b><span data-t="r_t">My events</span></b><span class="im-copy">⧉ <span data-t="r_cp">Copy RSVP link</span></span></div>
-    <div class="im-ev"><img data-show="ad:a" src="assets/crop/t-grad.png" alt=""><img data-show="ad:b" src="assets/crop/t-kaitlin.png" alt=""><img data-show="ad:c" src="assets/crop/t-laura.png" alt=""><b data-show="ad:a"><span data-t="r_ea">Andrea's graduation party</span></b><b data-show="ad:b"><span data-t="r_eb">Kaitlin's 7th birthday</span></b><b data-show="ad:c"><span data-t="r_ec">Laura &amp; Steven's wedding</span></b></div>
+    <div class="im-ev" data-show="ad:a"><img src="assets/crop/t-grad.png" alt=""><b><span data-t="r_ea">Andrea's graduation party</span></b></div>
+    <div data-show="ad:c">
+      <div class="im-ev" data-show="ev:wedding"><img src="assets/crop/ai-wed.png" alt=""><b><span data-t="r_ew">Faith &amp; Henry’s wedding</span></b></div>
+      <div class="im-ev" data-show="ev:birthday"><img src="assets/crop/ai-margot.png" alt=""><b><span data-t="r_em">Margot’s 8th birthday</span></b></div>
+      <div class="im-ev" data-show="ev:grad"><img src="assets/crop/t-grad.png" alt=""><b><span data-t="r_ea">Andrea's graduation party</span></b></div>
+      <div class="im-ev" data-show="ev:party"><img src="assets/crop/t-brunch.png" alt=""><b><span data-t="r_ep">Summertime brunch</span></b></div>
+    </div>
     <p class="im-gl"><b><span data-t="r_gl">Guest list</span></b><em><span data-t="r_ex">Example: how replies come in</span></em></p>
     <div class="im-rchips" data-hl="3"><span class="on"><span data-t="r_a">All</span> 12</span><span><span data-t="r_y">Yes</span> 8</span><span><span data-t="r_m">Maybe</span> 2</span><span><span data-t="r_n">No</span> 2</span></div>
     <ul class="im-guests" data-hl="3">
@@ -755,25 +993,69 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
       <li><i>S</i><b>Sam</b><span class="im-may"><span data-t="r_m2">Maybe</span></span></li>
       <li><i>T</i><b>Taylor</b><span class="im-yes"><span data-t="r_y3">Yes</span> · 4</span></li>
     </ul>
-    <button class="im-cta" data-go="paywall"><span data-t="r_c">Send my invitation</span></button>
+    <button class="im-cta" data-go="next"><span data-t="r_c">Send my invitation</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="paywall">
+<!-- Version A paywall · result-led: their finished card on top -->
+<section class="scr" data-id="paywall-a" data-ad="a">
   <button class="im-x" data-go="offer" aria-label="Close">✕</button>
-  <div class="body im-pwb">
-    <img class="im-ball" src="assets/crop/balloons.png" alt="">
-    <h1 class="im-h1" data-hl="1"><span data-show="ad:a"><span data-t="p_ha">Send your graduation invite</span></span><span data-show="ad:b"><span data-t="p_hb">Send your birthday invite</span></span><span data-show="ad:c"><span data-t="p_hc">Send your wedding invite</span></span></h1>
-    <p class="im-gp"><span data-t="p_gp">Go premium</span></p>
+  <div class="body im-pwb im-pwa">
+    <div class="im-pwcard" data-hl="a3"><img src="assets/crop/t-grad.png" alt=""><span class="im-rdy">✓ <span data-t="pa_r">Ready to send</span></span></div>
+    <h1 class="im-h1" data-hl="a3"><span data-t="pa_h">Send Andrea’s graduation announcement</span></h1>
     <p class="im-proof" data-hl="4"><b><span data-t="p_st">★ 4.9</span></b> <span data-t="p_r">47,400 App Store ratings</span><i></i><b>10M+</b> <span data-t="p_d">downloads</span></p>
     <div class="im-plans">
       <button class="im-plan" data-pick="plan:year"><span class="im-rad"></span><div><b><span data-t="p_y">Year / $23.49</span></b><small><span data-t="p_ym">12 months at $1.96 /mo</span></small><em><span data-t="p_tr">7 day free trial</span></em></div><span class="im-save"><span data-t="p_sv">Save 33%</span></span></button>
       <button class="im-plan" data-pick="plan:month"><span class="im-rad"></span><div><b><span data-t="p_m">Month / $2.99</span></b><small><span data-t="p_m1">1 month</span></small></div></button>
     </div>
-    <p class="im-wi"><span data-t="p_wi">What's included</span></p>
-    <ul class="im-inc"><li><span data-t="p_i1">10,000+ premium designs</span></li><li><span data-t="p_i2">No watermark</span></li><li><span data-t="p_i3">Unlimited Magic credits</span></li></ul>
     <button class="im-cta"><span data-t="p_c">TRY FOR FREE</span></button>
     <p class="im-fine"><span data-t="p_ca">Cancel anytime</span></p>
+  </div>
+</section>
+
+<!-- Version B paywall · RSVP-led: the guest list Premium collects -->
+<section class="scr" data-id="paywall-b" data-ad="b">
+  <button class="im-x" data-go="offer" aria-label="Close">✕</button>
+  <div class="body im-pwb im-pwbb">
+    <h1 class="im-h1 im-h1l" data-hl="b3"><span data-t="pb_h">See who’s coming to Kaitlin’s party</span></h1>
+    <div class="im-gcard" data-hl="3 b3">
+      <div class="im-gch"><img src="assets/crop/t-kaitlin.png" alt=""><div><b data-t="pb_e">Kaitlin’s birthday</b><small data-t="pb_l">Guests reply from one link</small></div></div>
+      <div class="im-rchips"><span class="on"><span data-t="r_y">Yes</span> 8</span><span><span data-t="r_m">Maybe</span> 2</span><span><span data-t="r_n">No</span> 2</span></div>
+      <ul class="im-guests"><li><i>J</i><b>Jordan</b><span class="im-yes"><span data-t="r_y2">Yes</span> · 2</span></li><li><i>T</i><b>Taylor</b><span class="im-yes"><span data-t="r_y3">Yes</span> · 4</span></li></ul>
+      <em class="im-ex" data-t="r_ex">Example: how replies come in</em>
+    </div>
+    <p class="im-proof" data-hl="4"><b><span data-t="p_st">★ 4.9</span></b> <span data-t="p_r">47,400 App Store ratings</span><i></i><b>10M+</b> <span data-t="p_d">downloads</span></p>
+    <div class="im-plans">
+      <button class="im-plan" data-pick="plan:year"><span class="im-rad"></span><div><b><span data-t="p_y">Year / $23.49</span></b><small><span data-t="pb_ym">Every birthday this year · 7 day free trial</span></small></div><span class="im-save"><span data-t="p_sv">Save 33%</span></span></button>
+      <button class="im-plan" data-pick="plan:month"><span class="im-rad"></span><div><b><span data-t="p_m">Month / $2.99</span></b><small><span data-t="p_m1">1 month</span></small></div></button>
+    </div>
+    <button class="im-cta"><span data-t="pb_c">Send and collect RSVPs</span></button>
+    <p class="im-fine"><span data-t="p_ca">Cancel anytime</span></p>
+  </div>
+</section>
+
+<!-- Version C paywall · Free vs Premium, side by side -->
+<section class="scr" data-id="paywall-c" data-ad="c">
+  <button class="im-x" data-go="offer" aria-label="Close">✕</button>
+  <div class="body im-pwb im-pwc">
+    <img class="im-ball im-ballc" src="assets/crop/balloons.png" alt="">
+    <h1 class="im-h1"><span data-show="ev:wedding"><span data-t="p_hc">Send your wedding invite</span></span><span data-show="ev:birthday"><span data-t="p_hb">Send your birthday invite</span></span><span data-show="ev:grad"><span data-t="p_ha">Send your graduation invite</span></span><span data-show="ev:party"><span data-t="p_hp">Send your party invite</span></span></h1>
+    <table class="im-cmp" data-hl="c3">
+      <thead><tr><th></th><th data-t="pc_f">Free</th><th class="im-cp">♛ <span data-t="e_pr">Premium</span></th></tr></thead>
+      <tbody>
+        <tr><td data-t="pc_1">Make and edit your invite</td><td>✓</td><td class="im-cp">✓</td></tr>
+        <tr><td data-t="p_i1">10,000+ premium designs</td><td>–</td><td class="im-cp">✓</td></tr>
+        <tr><td data-t="p_i2">No watermark</td><td>–</td><td class="im-cp">✓</td></tr>
+        <tr><td data-t="pc_4">Ad-free experience</td><td>–</td><td class="im-cp">✓</td></tr>
+        <tr><td data-t="p_i3">Unlimited Magic credits</td><td>–</td><td class="im-cp">✓</td></tr>
+      </tbody>
+    </table>
+    <p class="im-proof" data-hl="4"><b><span data-t="p_st">★ 4.9</span></b> <span data-t="p_r">47,400 App Store ratings</span><i></i><b>10M+</b> <span data-t="p_d">downloads</span></p>
+    <div class="im-plans im-plansr">
+      <button class="im-plan" data-pick="plan:year"><span class="im-rad"></span><div><b><span data-t="p_y">Year / $23.49</span></b><small><span data-t="p_tr">7 day free trial</span></small></div><span class="im-save"><span data-t="p_sv">Save 33%</span></span></button>
+      <button class="im-plan" data-pick="plan:month"><span class="im-rad"></span><div><b><span data-t="p_m">Month / $2.99</span></b><small><span data-t="p_m1">1 month</span></small></div></button>
+    </div>
+    <button class="im-cta"><span data-t="p_c">TRY FOR FREE</span></button>
   </div>
 </section>
 
@@ -784,7 +1066,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <p class="im-sub"><span data-t="o_s">Take Premium for a week: every premium design, no watermark, RSVPs for your guests.</span></p>
     <div class="im-ofc" data-hl="5"><div><b><span data-t="o_p">Weekly Premium</span></b><small><span data-t="o_pm">Cancel anytime in Settings</span></small></div><strong><span data-t="o_pp">$1.99</span><em><span data-t="o_pw">/week</span></em></strong></div>
     <button class="im-cta"><span data-t="o_c">Get Premium for a week</span></button>
-    <button class="im-ghost" data-go="paywall"><span data-t="o_n">No thanks</span></button>
+    <button class="im-ghost" data-back><span data-t="o_n">No thanks</span></button>
   </div>
 </section>
 
@@ -879,21 +1161,31 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
  "app": "Invitation Maker",
  "state": {
   "ad": "a",
-  "plan": "year"
+  "plan": "year",
+  "ev": "wedding",
+  "who": "kids",
+  "age": "7"
  },
  "labels": {},
  "chips": {
   "search": "App Store search",
+  "ask-b": "Whose birthday",
+  "ask-c": "What they celebrate",
   "pick": "Their designs",
-  "editor": "Editor",
+  "ask-a": "Who’s graduating",
+  "make-a": "Their card",
+  "make-b": "Quick card",
+  "make-c": "Magic draft",
   "rsvp": "RSVP",
-  "paywall": "Paywall",
+  "paywall-a": "Paywall · card first",
+  "paywall-b": "Paywall · RSVPs first",
+  "paywall-c": "Paywall · Free vs Premium",
   "offer": "On close"
  },
  "hero": [
   "pick",
-  "paywall",
-  "rsvp"
+  "paywall-a",
+  "make-c"
  ],
  "outcome": {
   "cr": "+20%"
@@ -907,9 +1199,9 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "il": "CR to purchase"
   },
   {
-   "screen": "editor",
+   "screen": "make-a",
    "title": "Ask for Premium when they send, not before they start",
-   "what": "Your editor already marks crown designs “Premium” and has “Save draft”, “Next” and “Create RSVP”. Let them make the whole card theirs for free and open the paywall at Next, when the invite is finished and worth sending.",
+   "what": "Your editor already marks crown designs “Premium” and has “Save draft” and “Next”. Let them finish the card for free, whichever way they make it (their Graduate card, three answers on a birthday design, or a Magic draft), and open the paywall when they tap Next or Send.",
    "impact": "+5–15%",
    "il": "CR to purchase"
   },
@@ -921,9 +1213,9 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "il": "CR to purchase"
   },
   {
-   "screen": "paywall",
+   "screen": "paywall-a",
    "title": "Lead with your App Store proof, not Trustpilot’s",
-   "what": "The paywall shows “4.8 out of 5 · +1k reviews on Trustpilot”. Your App Store listing holds 4.9 from 47,400 US ratings and “10,000,000+ downloads”. Show those, under a headline that names their event: “Send your graduation invite”.",
+   "what": "The paywall shows “4.8 out of 5 · +1k reviews on Trustpilot”. Your App Store listing holds 4.9 from 47,400 US ratings and “10,000,000+ downloads”. Show those on every version of the paywall, under a headline that names their event: “Send Andrea’s graduation announcement”.",
    "impact": "+5–10%",
    "il": "CR to purchase"
   },
@@ -939,7 +1231,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
   "search": {
    "idea": 0,
    "t": "Opens on their App Store search",
-   "why": "A proposal: your Apple Ads show on searches like these in the US. Here the first screens follow what they typed: graduation, birthday or just “invitation”."
+   "why": "A proposal: your Apple Ads show on searches like these in the US. Each search opens its own version: graduation, birthday or just “invitation”."
   },
   "pick": {
    "idea": 1,
@@ -947,14 +1239,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "why": "<b>Try</b> opening on the designs that match their search, <b>because</b> today the first screen is “Go premium” for everyone, before a single design.",
    "iv": "CR +10–20%",
    "il": "to purchase",
-   "also": "Designs, chips and counts from your App Store screenshots and recorded browse screens."
-  },
-  "editor": {
-   "idea": 2,
-   "t": "Premium at Next, not at launch",
-   "why": "<b>Try</b> letting them edit the whole card for free and asking at Next, <b>because</b> by then the invite is theirs and worth sending, and your editor already marks crown designs “Premium”.",
-   "iv": "CR +5–15%",
-   "il": "to purchase"
+   "also": "Designs, chips and counts from your App Store screenshots and recorded browse screens. Version C adds a way into Magic."
   },
   "rsvp": {
    "idea": 3,
@@ -962,15 +1247,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "why": "<b>Try</b> one look at how replies come in before the paywall, <b>because</b> online RSVPs are a whole screenshot on your listing and no new user sees them before paying.",
    "iv": "CR +5–10%",
    "il": "to purchase",
-   "also": "Your own “My events” screen; the guests are an example."
-  },
-  "paywall": {
-   "idea": 4,
-   "t": "Your App Store proof, their event",
-   "why": "<b>Try</b> 4.9 from 47,400 ratings and 10M+ downloads under a headline that names their event, <b>because</b> the paywall shows Trustpilot’s 1k reviews instead.",
-   "iv": "CR +5–10%",
-   "il": "to purchase",
-   "also": "Kept: your plans, “12 months at $1.96 /mo”, the 7-day trial and “TRY FOR FREE”."
+   "also": "Versions A and C. Version B shows the guest list on its paywall instead. The guests are an example."
   },
   "offer": {
    "idea": 5,
@@ -978,6 +1255,78 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "why": "<b>Try</b> your $1.99 weekly plan once, when someone closes the paywall, <b>because</b> a person with one graduation to send won’t pay for a year.",
    "iv": "CR +5–10%",
    "il": "from paywall closers"
+  },
+  "ask-a": {
+   "idea": 1,
+   "t": "Who’s graduating? (version A)",
+   "why": "<b>Try</b> asking the graduate’s name, class year and photo right after the design, <b>because</b> a graduation card is about one person, and your Magic photo designs can put them on it.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version A, recommendation A1."
+  },
+  "ask-b": {
+   "idea": 1,
+   "t": "Whose birthday? (version B)",
+   "why": "<b>Try</b> asking only who it’s for and the age they’re turning, <b>because</b> “birthday” is your most popular search and a parent wants the invite done, not a long quiz.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version B, recommendation B1. Who and age choose the designs; the categories are your own chips."
+  },
+  "ask-c": {
+   "idea": 1,
+   "t": "What are you celebrating? (version C)",
+   "why": "<b>Try</b> one question before any design, <b>because</b> “invitation” names no event, and the answer picks the designs, the wording and the paywall headline.",
+   "iv": "CR +5–15%",
+   "il": "to purchase",
+   "also": "Version C, recommendation C1."
+  },
+  "make-a": {
+   "idea": 2,
+   "t": "Their announcement, finished (version A)",
+   "why": "<b>Try</b> showing their card filled in and ready before any price, <b>because</b> a parent then pays to send the result they came for, not to start making it.",
+   "iv": "CR +5–15%",
+   "il": "to purchase",
+   "also": "Version A, recommendation A2. Idea 2: Premium only at Next."
+  },
+  "make-b": {
+   "idea": 2,
+   "t": "Three answers, one card (version B)",
+   "why": "<b>Try</b> dropping name, age and date onto the design with one Send button, <b>because</b> a birthday invite is made in minutes and the full editor can wait.",
+   "iv": "CR +5–15%",
+   "il": "to purchase",
+   "also": "Version B, recommendation B2. “When and where” is an example."
+  },
+  "make-c": {
+   "idea": 2,
+   "t": "A Magic draft from their details (version C)",
+   "why": "<b>Try</b> your AI invite from their event details before the price, <b>because</b> someone without a design in mind gets a finished one in seconds.",
+   "iv": "CR +5–15%",
+   "il": "to purchase",
+   "also": "Version C, recommendation C2. Your own “Create your invite with AI” screen and card, from your listing."
+  },
+  "paywall-a": {
+   "idea": 4,
+   "t": "A paywall led by their card (version A)",
+   "why": "<b>Try</b> their finished card on top and the graduate’s name in the headline, <b>because</b> the reason to pay is then on screen, not described.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version A, recommendation A3. Idea 4: 4.9 from 47,400 ratings instead of Trustpilot."
+  },
+  "paywall-b": {
+   "idea": 4,
+   "t": "A paywall led by RSVPs (version B)",
+   "why": "<b>Try</b> leading with the guest list Premium collects, <b>because</b> a birthday host needs a headcount for cake and favours more than new fonts.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version B, recommendation B3. The guests are an example; “Every birthday this year” sells the year to a parent."
+  },
+  "paywall-c": {
+   "idea": 4,
+   "t": "Free vs Premium, side by side (version C)",
+   "why": "<b>Try</b> a two-column table of what Premium adds, <b>because</b> a generic search means they’re still comparing apps, and a clear list beats a slogan.",
+   "iv": "CR +5–10%",
+   "il": "to purchase",
+   "also": "Version C, recommendation C3. The Premium rows are your own “What’s included” list."
   }
  },
  "langs": [
@@ -1066,7 +1415,67 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "k_c9": "Cumpleaños",
    "k_c10": "Baby shower",
    "r_ec": "La boda de Laura y Steven",
-   "p_hc": "Envía tu invitación de boda"
+   "p_hc": "Envía tu invitación de boda",
+   "k_eb2": "🎂 Buscaste “birthday”: diseños infantiles primero",
+   "k_ecw": "💍 Diseños de boda, o que Magic cree el tuyo",
+   "k_ecb": "🎂 Diseños de cumpleaños, o que Magic cree el tuyo",
+   "k_ecg": "🎓 Diseños de graduación, o que Magic cree el tuyo",
+   "k_ecp": "🎉 Diseños de fiesta, o que Magic cree el tuyo",
+   "k_mg": "Que Magic lo diseñe con tus datos",
+   "q_sk": "Omitir",
+   "qb_h": "¿De quién es el cumpleaños?",
+   "qb_s": "Dos toques, y tus diseños de cumpleaños se abren listos.",
+   "qb_t": "Cumple",
+   "qb_c": "Ver sus diseños",
+   "qc_h": "¿Qué celebras?",
+   "qc_s": "Abriremos con diseños para eso, o Magic puede crear uno con tus datos.",
+   "qc_c": "Continuar",
+   "qa_h": "¿Quién se gradúa?",
+   "qa_s": "Lo pondremos en tu tarjeta Graduate.",
+   "qa_n": "Nombre de quien se gradúa",
+   "qa_y": "Promoción",
+   "qa_p": "Subir foto",
+   "qa_ps": "Los diseños con foto Magic pueden ponerle en la tarjeta",
+   "qa_c": "Crear mi anuncio",
+   "ma_r": "El anuncio de Andrea está listo",
+   "ma_1": "Nombre: Andrea Larousse",
+   "ma_2": "Promoción 2026",
+   "ma_3": "Su foto, en la tarjeta",
+   "mb_t": "Tu invitación",
+   "mb_n": "Nombre",
+   "mb_w": "Cuándo y dónde",
+   "mb_wv": "Sáb · 14:00 · en casa",
+   "mb_f": "✓ Crearla es gratis. Premium solo al enviar.",
+   "mb_e": "Editar cada detalle",
+   "mb_c": "Me gusta, enviarla",
+   "mc_t": "Crear con IA",
+   "mc_d": "Detalles del evento",
+   "mc_dw": "La boda de Faith Sanchez y Henry Grayson, sábado 16 de septiembre de 2026, Majestic Ballroom",
+   "mc_db": "La fiesta de 8 años de Margot, 23/08/26, 18:00, Saddlebrook Roller Rink",
+   "mc_dg": "Andrea Larousse se gradúa, promoción 2026",
+   "mc_dp": "Brunch de verano, sábado 13 de junio",
+   "mc_v": "Describe tu estilo visual",
+   "mc_vw": "Flores rosa suave",
+   "mc_vb": "Neón, patinaje disco",
+   "mc_vg": "Clásico, con foto",
+   "mc_vp": "Lunares de colores",
+   "mc_s": "Estilo",
+   "mc_c": "Colores",
+   "mc_bm": "Mejor opción",
+   "r_ew": "La boda de Faith y Henry",
+   "r_em": "El 8.º cumpleaños de Margot",
+   "r_ep": "Brunch de verano",
+   "pa_r": "Lista para enviar",
+   "pa_h": "Envía el anuncio de graduación de Andrea",
+   "pb_h": "Mira quién viene a la fiesta de Kaitlin",
+   "pb_e": "El cumpleaños de Kaitlin",
+   "pb_l": "Los invitados responden desde un enlace",
+   "pb_ym": "Todos los cumpleaños del año · 7 días gratis",
+   "pb_c": "Enviar y recibir respuestas",
+   "p_hp": "Envía tu invitación de fiesta",
+   "pc_f": "Gratis",
+   "pc_1": "Crear y editar tu invitación",
+   "pc_4": "Sin anuncios"
   }
  },
  "labelsI18n": {},
@@ -1075,23 +1484,23 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
  "poster": "assets/walkthrough-poster.jpg",
  "compare": {
   "today": "today",
-  "proposed": "paywall",
+  "proposed": "paywall-a",
   "kicker": "The paywall, side by side",
   "title": "Your paywall today, and with the five ideas.",
-  "sub": "Same plans, same prices.",
+  "sub": "Same plans, same prices. Version A, the “graduation” search; versions B and C change the layout again (see Your ads).",
   "todayCap": "rebuilt word for word from your recorded paywall",
   "rows": [
    {
     "h": "When it shows",
     "idea": 1,
     "was": "The first screen, before any design",
-    "now": "After they pick a design, edit it and tap Send"
+    "now": "After they pick a design and their card is ready"
    },
    {
     "h": "Headline",
     "idea": 4,
     "was": "“Go premium”",
-    "now": "“Send your graduation invite”: the event they searched for"
+    "now": "“Send Andrea’s graduation announcement”, over their own finished card"
    },
    {
     "h": "Proof",
@@ -1103,7 +1512,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "h": "Before it",
     "idea": 3,
     "was": "Nothing: the app opens on it",
-    "now": "Their own card, and how RSVPs come in"
+    "now": "Their own card, filled in, and how RSVPs come in"
    },
    {
     "h": "On close",
@@ -1112,7 +1521,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "now": "Once: Weekly Premium at $1.99, for one event"
    }
   ],
-  "kept": "Kept: the balloons, both plans with “Save 33%”, “12 months at $1.96 /mo”, the 7-day trial, the included list (shortened to three lines), “TRY FOR FREE” and “Cancel anytime”."
+  "kept": "Kept: both plans with “Save 33%”, “12 months at $1.96 /mo”, the 7-day trial, “TRY FOR FREE” and “Cancel anytime”. Version A drops the included list and the balloons for their card."
  },
  "tour": {
   "introLede": "Five ideas to turn more Invitation Maker installs into Premium members.",
@@ -1123,7 +1532,9 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "d": 3000,
     "st": {
      "plan": "year",
-     "ad": "a"
+     "ad": "a",
+     "ev": "wedding",
+     "age": "7"
     },
     "tap": [
      ".im-get",
@@ -1132,74 +1543,85 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    },
    {
     "id": "pick",
-    "d": 3200,
+    "d": 2800,
     "pop": ".im-echo",
     "tap": [
      ".im-big",
-     2700
+     2300
     ]
    },
    {
-    "id": "editor",
-    "d": 3400,
-    "pop": ".im-free",
+    "id": "ask-a",
+    "d": 2900,
+    "pop": ".im-up",
+    "tap": [
+     ".im-cta",
+     2400
+    ]
+   },
+   {
+    "id": "make-a",
+    "d": 3000,
+    "pop": ".im-ready",
     "tap": [
      ".im-next",
-     2900
+     2500
     ]
    },
    {
     "id": "rsvp",
-    "d": 3400,
+    "d": 2600,
     "pop": ".im-rchips",
     "tap": [
      ".im-cta",
-     2900
+     2100
     ]
    },
    {
-    "id": "paywall",
-    "d": 3800,
+    "id": "paywall-a",
+    "d": 3200,
     "pop": ".im-proof"
    },
    {
-    "id": "paywall",
-    "d": 1300,
+    "id": "paywall-a",
+    "d": 1200,
     "tap": [
      ".im-x",
-     800
+     700
     ]
    },
    {
     "id": "offer",
-    "d": 3000
+    "d": 2600
    },
    {
-    "id": "search",
-    "d": 1800,
+    "id": "make-b",
+    "d": 2500,
     "st": {
      "ad": "b"
     }
    },
    {
-    "id": "pick",
-    "d": 1900
+    "id": "paywall-b",
+    "d": 2500,
+    "pop": ".im-gcard"
    },
    {
-    "id": "search",
-    "d": 1800,
+    "id": "make-c",
+    "d": 2500,
     "st": {
      "ad": "c"
-    }
+    },
+    "pop": ".im-mres"
    },
    {
-    "id": "pick",
-    "d": 2200,
-    "pop": ".im-echo"
+    "id": "paywall-c",
+    "d": 2600,
+    "pop": ".im-cmp"
    },
    {
-    "id": "offer",
-    "d": 3800,
+    "id": "paywall-c",
+    "d": 3000,
     "end": true
    }
   ],
@@ -1207,7 +1629,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "search": {
     "k": "Context",
     "t": "Opens on their App Store search",
-    "l": "A proposal: the flow follows what they typed."
+    "l": "Each search opens its own version."
    },
    "pick": {
     "n": 1,
@@ -1216,10 +1638,17 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "o": "+10–20%",
     "ol": "CR to purchase"
    },
-   "editor": {
+   "ask-a": {
+    "n": 1,
+    "t": "A · Who’s graduating?",
+    "l": "Name, class year and a photo.",
+    "o": "+5–10%",
+    "ol": "CR to purchase"
+   },
+   "make-a": {
     "n": 2,
-    "t": "Premium at Next",
-    "l": "Edit the whole card free, pay to send.",
+    "t": "A · Their card, finished",
+    "l": "Free to make; Premium only at Next.",
     "o": "+5–15%",
     "ol": "CR to purchase"
    },
@@ -1230,10 +1659,10 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "o": "+5–10%",
     "ol": "CR to purchase"
    },
-   "paywall": {
+   "paywall-a": {
     "n": 4,
-    "t": "App Store proof, their event",
-    "l": "4.9 from 47,400 ratings, 10M+ downloads.",
+    "t": "A · A paywall led by their card",
+    "l": "Their card on top, 4.9 from 47,400 ratings.",
     "o": "+5–10%",
     "ol": "CR to purchase"
    },
@@ -1243,6 +1672,34 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "l": "Your $1.99 weekly plan, shown once.",
     "o": "+5–10%",
     "ol": "CR from closers"
+   },
+   "make-b": {
+    "n": 2,
+    "t": "B · Three answers, one card",
+    "l": "“birthday”: name, age, date, send.",
+    "o": "+5–15%",
+    "ol": "CR to purchase"
+   },
+   "paywall-b": {
+    "n": 4,
+    "t": "B · A paywall led by RSVPs",
+    "l": "The guest list Premium collects.",
+    "o": "+5–10%",
+    "ol": "CR to purchase"
+   },
+   "make-c": {
+    "n": 2,
+    "t": "C · A Magic draft",
+    "l": "“invitation”: their event, drafted by your AI.",
+    "o": "+5–15%",
+    "ol": "CR to purchase"
+   },
+   "paywall-c": {
+    "n": 4,
+    "t": "C · Free vs Premium",
+    "l": "What Premium adds, side by side.",
+    "o": "+5–10%",
+    "ol": "CR to purchase"
    }
   }
  },
@@ -1298,6 +1755,14 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
      "dd": "Cut from your App Store screenshots “Party”, “Birthday” and “Wedding”. The Graduate design is the only graduation one in them."
     },
     {
+     "dt": "“Create your invite with AI”, “Event details”, “Describe your visuals”, “Style”, “Colors”, “Best match”, the Faith Sanchez &amp; Henry Grayson card and Margot’s birthday card",
+     "dd": "Your fourth App Store screenshot, verbatim; the cards cut from it (the wedding card is cut above the Margot card that overlaps it). Typing the details before the paywall is our proposal."
+    },
+    {
+     "dt": "“Upload photo”, Magic photo designs",
+     "dd": "Your seventh App Store screenshot."
+    },
+    {
      "dt": "“Set a festive tone for your holiday gathering”",
      "dd": "Your App Store subtitle."
     },
@@ -1306,12 +1771,16 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
      "dd": "US Apple Ads search data for Greetings Island, 11 Oct–11 Nov 2026, account-level (it covers Wishwave too): “birthday” about 1% (popularity 12.13, the highest on the list), “invitation” about 2% (5.12), “graduation” about 32% (2.11), your own names “invitation maker, cards &amp; rsvp” 44% and “invitation maker: cards &amp; rsvp” 39%, and terms like “invitae” 15%. There is no asa.adapty.io page for you. Opening a flow per search is our proposal."
     },
     {
-     "dt": "Guests in the RSVP example, the free-editing line, the Spanish copy",
-     "dd": "Ours."
+     "dt": "Guests in the RSVP examples, “Andrea Larousse · Class of 2026”, “Kaitlin · 7 · Sat · 2 pm · at home”, the free-editing line, the Spanish copy",
+     "dd": "Ours. The graduate’s name is the one printed on your Graduate design."
     },
     {
      "dt": "No Meta ads",
      "dd": "The Meta Ad Library, searched for “Greetings Island”, “Invitation Maker” and greetingsisland.com, US and all countries, 11 Nov 2026: no active ads from you. The newest we can find launched in May 2026."
+    },
+    {
+     "dt": "Three versions, one per search",
+     "dd": "Our proposal: version A (graduation) asks who’s graduating after the design; version B (birthday) asks who and the age, then fills the card from three answers; version C (invitation) asks the event, then offers a Magic draft. Each has its own paywall layout, built from your own components."
     }
    ]
   },
@@ -1328,7 +1797,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     },
     {
      "dt": "Art",
-     "dd": "Designs cut from your App Store screenshots; the balloons cut from your recorded paywall."
+     "dd": "Designs cut from your App Store screenshots; the AI cards from your “Create your invite with AI” screenshot; the balloons cut from your recorded paywall."
     }
    ]
   },
@@ -1338,6 +1807,10 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     {
      "dt": "Closing the paywall",
      "dd": "The recording subscribed, so we didn’t see what ✕ leads to."
+    },
+    {
+     "dt": "Whether Magic costs credits on the free plan",
+     "dd": "Premium lists “Unlimited Magic credits”; how many a free user gets isn’t on your listing, so version C shows the draft without a count."
     },
     {
      "dt": "Which app each Apple Ad was for",
@@ -1362,6 +1835,11 @@ var S = C.state, scr = {}, ORDER = [], hist = [], cur = null, Q = location.searc
 var SHOT = /[?&](shot|phone|tour)\b/.test(Q), HERO = /[?&]hero\b/.test(Q);
 /* a screen with data-aside (e.g. the paywall TODAY for the side-by-side) renders for stills but is not part of the flow */
 document.querySelectorAll('.scr').forEach(function(s){ scr[s.dataset.id] = s; if (!s.hasAttribute('data-aside')) ORDER.push(s.dataset.id); });
+/* PER-AD FLOWS: a screen with data-ad="a b" is only in those ads' flows; data-go="next" = next screen of this flow */
+var ALL = ORDER.slice();
+function flowOrder(){ return ALL.filter(function(id){ var a = scr[id].dataset.ad; return !a || a.split(' ').indexOf(String(S.ad)) > -1; }); }
+ORDER = flowOrder();
+function nextOf(t){ if (t !== 'next') return t; var i = ORDER.indexOf(cur); return ORDER[i + 1] || ORDER[i]; }
 if (/[?&]shot\b/.test(Q)) document.documentElement.classList.add('shot');
 if (/[?&]phone\b/.test(Q)) document.documentElement.classList.add('shot', 'phoneonly');
 if (/[?&]clear\b/.test(Q)) document.documentElement.classList.add('clear');
@@ -1392,6 +1870,7 @@ function setLang(l){
 function lab(key){ var v = S[key]; var L = C.labels[key]; if (Array.isArray(v)) return v.map(function(x){ return L && L[x] || x; }).join(', '); return (L && L[v]) || v; }
 function sync(){
   applyLang();
+  var o = flowOrder(); if (o.join() !== ORDER.join()) { ORDER = o; var cc = document.getElementById('chips'); if (cc) cc.innerHTML = ''; if (cur) { paint(); return; } }
   document.querySelectorAll('[data-bind]').forEach(function(el){
     var b = el.dataset.bind, m = b.split(':');
     el.textContent = m[0] === 'label' ? lab(m[1]) : m[0] === 'count' ? (S[m[1]] || []).length : (S[b] == null ? '' : S[b]);
@@ -1457,10 +1936,10 @@ document.addEventListener('click', function(e){
   var L = e.target.closest('[data-setlang]'); if (L){ setLang(L.dataset.setlang); return; }
   if (e.target.closest('[data-langtoggle]') && LANGS.length > 1){ var k = LANGS.findIndex(function(x){ return x.code === S.lang; }); setLang(LANGS[(k + 1) % LANGS.length].code); return; }
   var el = e.target.closest('[data-go],[data-back],[data-pick],[data-toggle]'); if (!el) return;
-  if (el.dataset.pick){ var p = el.dataset.pick.split(':'); S[p[0]] = p[1]; sync(); if (el.dataset.advance) setTimeout(function(){ go(el.dataset.advance); }, 170); return; }
+  if (el.dataset.pick){ var p = el.dataset.pick.split(':'); S[p[0]] = p[1]; sync(); if (el.dataset.advance) setTimeout(function(){ go(nextOf(el.dataset.advance)); }, 170); return; }
   if (el.dataset.toggle){ var q = el.dataset.toggle.split(':'), a = S[q[0]] = S[q[0]] || [], i = a.indexOf(q[1]); if (i > -1) a.splice(i, 1); else a.push(q[1]); sync(); return; }
   if ('back' in el.dataset) return back();
-  go(el.dataset.go);
+  go(nextOf(el.dataset.go));
 });
 document.querySelectorAll('[data-input]').forEach(function(inp){
   inp.value = S[inp.dataset.input] || ''; inp.addEventListener('input', function(){ S[inp.dataset.input] = inp.value.trim() || 'there'; sync(); });
@@ -1640,6 +2119,11 @@ function tourInit(){
   var rows = {}; (D.rows || []).forEach(function(r){ rows[r.id] = r; });
   var caps = D.stepCaps || {}, steps = document.getElementById('duoSteps'), tbl = document.getElementById('duoTbl');
   var stage = document.getElementById('duoStage');
+  /* per-ad versions: a step may name a different screen per flow ({id, label, ids:{a:'pw-a', b:'pw-b'}}) */
+  var STEPS = (D.steps || []).filter(function(s){ return s.id; });
+  function sid(s, k){ return (s.ids && s.ids[k]) || s.id; }
+  function stepOf(k, scrId){ return STEPS.find(function(s){ return sid(s, k) === scrId; }); }
+  function stepFor(scrId){ for (var i = 0; i < F.length; i++) { var s = stepOf(F[i].k, scrId); if (s) return s; } return null; }
 
   function cw(i){ return W[i] && W[i].contentWindow && W[i].contentWindow.jump ? W[i].contentWindow : null; }
   function label(id){ var s = (D.steps || []).find(function(x){ return x.id === id; }); if (s && s.label) return s.label; var w = cw(0); return (w && w.C.chips && w.C.chips[id]) || id; }
@@ -1654,15 +2138,19 @@ function tourInit(){
     });
     var sc = document.getElementById('duoStepCap'); if (sc) sc.innerHTML = shared && id === 'today' ? shared : '';
   }
-  function both(id, n){
-    busy = true; F.forEach(function(f, i){ var w = cw(i); if (w && w.cur !== id) w.jump(id); }); busy = false; paintStep(id);
-    if (n) setTimeout(function(){ F.forEach(function(f, i){ var w = cw(i); if (w && w.pulseIdea) w.pulseIdea(n); }); }, 380);
+  function both(id, n, only){
+    var st = STEPS.find(function(s){ return s.id === id; }) || stepFor(id);
+    busy = true; F.forEach(function(f, i){ var w = cw(i), t = st ? sid(st, f.k) : id; if (w && w.cur !== t) w.jump(t); }); busy = false; paintStep(st ? st.id : id);
+    if (n) setTimeout(function(){ F.forEach(function(f, i){ var w = cw(i); if (w && w.pulseIdea && (!only || only === f.k)) w.pulseIdea(n); }); }, 380);
+    root.querySelectorAll('[data-duorec]').forEach(function(b){ b.classList.toggle('on', !!only && b.dataset.duorec === only + ':' + String(n).slice(1)); });
     root.querySelectorAll('[data-duoidea]').forEach(function(b){ b.classList.toggle('on', +b.dataset.duoidea === n); });
   }
   function follow(i, id){
     if (busy) return;
-    busy = true; F.forEach(function(f, j){ var w = cw(j); if (j !== i && w && w.cur !== id) w.jump(id); }); busy = false;
-    paintStep(id);
+    var st = stepOf(F[i].k, id);
+    busy = true; F.forEach(function(f, j){ var w = cw(j), t = st ? sid(st, f.k) : id; if (j !== i && w && w.cur !== t) w.jump(t); }); busy = false;
+    paintStep(st ? st.id : id);
+    root.querySelectorAll('[data-duorec]').forEach(function(b){ b.classList.remove('on'); });
     root.querySelectorAll('[data-duoidea]').forEach(function(b){ b.classList.remove('on'); });
   }
   var ready_n = 0;
@@ -1700,6 +2188,14 @@ function tourInit(){
   var ib = document.getElementById('duoIdeas');
   if (ib && window.C && C.ideas) ib.innerHTML = '<span class="au-duo-sep">The five ideas</span>' + C.ideas.map(function(d, i){
     return '<button type="button" data-duoidea="' + (i + 1) + '" data-scr="' + d.screen + '"><i>' + (i + 1) + '</i>' + d.title + '</button>'; }).join('');
+  /* per-ad recommendations under each phone: flows[k].recs = [{step, title, why, impact, il}], pulse data-hl="<k><n>" */
+  F.forEach(function(f){
+    var box = document.getElementById('duoRec' + f.k); if (!box || !f.recs) return;
+    box.innerHTML = (f.version ? '<p class="au-rec-v">' + f.version + '</p>' : '') + f.recs.map(function(r, i){
+      return '<button type="button" class="au-rec" data-duorec="' + f.k + ':' + (i + 1) + '" data-step="' + r.step + '"><i>' + f.k.toUpperCase() + (i + 1) + '</i>' +
+        '<span><b>' + r.title + '</b><em>' + r.why + '</em></span>' + (r.impact ? '<mark>' + r.impact + '<small>' + (r.il || '') + '</small></mark>' : '') + '</button>';
+    }).join('');
+  });
   /* the table: one row per step that differs */
   if (tbl) {
     var h = '<caption>' + D.tableTitle + '<span>' + D.tableSub + '</span></caption><thead><tr><th>Screen</th>' +
@@ -1717,6 +2213,7 @@ function tourInit(){
   root.addEventListener('click', function(e){
     var b = e.target.closest('[data-duo]'); if (b) { both(b.dataset.duo); toStage(); return; }
     var n = e.target.closest('[data-duoidea]'); if (n) { both(n.dataset.scr, +n.dataset.duoidea); return; }
+    var rc = e.target.closest('[data-duorec]'); if (rc) { var q = rc.dataset.duorec.split(':'); both(rc.dataset.step, q[0] + q[1], q[0]); return; }
     var g = e.target.closest('[data-duogo]'); if (g) { both(F.length && cw(0) ? cw(0).ORDER[0] : 'ad'); toStage(g.dataset.duogo); return; }
     var t = e.target.closest('[data-duoone]');
     if (t) { stage.dataset.one = t.dataset.duoone; root.querySelectorAll('[data-duoone]').forEach(function(x){ x.classList.toggle('on', x === t); }); }
@@ -1731,5 +2228,117 @@ function tourInit(){
 })();
 /* DUO:END */
 </script>
+<script>
+/* MOTION:START — hero words + icon, scroll reveal, count-up, and the live walkthrough in the ad phones. Config: #motionData. */
+(function run(){
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', run); return; }
+  var Q = location.search, H = document.documentElement;
+  if (/[?&](embed|shot|phone|tour|hero|app)\b/.test(Q) || H.classList.contains('appmode')) return;
+  var el = document.getElementById('motionData'); if (!el) return;
+  var M = JSON.parse(el.textContent), RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+
+  /* hero: the app's colour, its own words drifting across, the icon bobbing, a stats strip under it */
+  var hero = $('.au-top-hero');
+  if (hero && M.hero) {
+    hero.classList.add('au-mx');
+    var w = M.hero.words || [], h = '';
+    w.forEach(function(t, k){ h += '<span style="top:' + (4 + k * (88 / Math.max(w.length, 1))).toFixed(1) + '%;animation-duration:' + (16 + (k * 7) % 11) + 's;animation-delay:-' + ((k * 3.7) % 16).toFixed(1) + 's;font-size:' + (18 + (k * 5) % 16) + 'px">' + t + '</span>'; });
+    var d = document.createElement('div'); d.className = 'au-mx-words'; d.setAttribute('aria-hidden', 'true'); d.innerHTML = h; hero.insertBefore(d, hero.firstChild);
+    if (M.hero.icon) { var im = document.createElement('img'); im.className = 'au-mx-icon'; im.src = M.hero.icon; im.alt = ''; hero.appendChild(im); }
+    if (M.hero.stats) { var st = document.createElement('div'); st.className = 'au-mx-stats';
+      st.innerHTML = M.hero.stats.map(function(s){ return '<div><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join(''); hero.parentNode.insertBefore(st, hero.nextSibling); }
+  }
+
+  /* count-up for stats and outcome numbers */
+  function countUp(n){
+    var t = n.textContent, m = /^([^\d]*)([\d.,]+)(.*)$/.exec(t); if (!m || RM) return;
+    var raw = m[2].replace(/,/g, ''), v = parseFloat(raw), dec = (raw.split('.')[1] || '').length, t0 = performance.now();
+    if (!isFinite(v) || v === 0) return;
+    (function f(){ var k = Math.min(1, (performance.now() - t0) / 900), e = 1 - Math.pow(1 - k, 3), x = (v * e).toFixed(dec);
+      if (m[2].indexOf(',') > -1) x = Number(x).toLocaleString('en-US'); n.textContent = m[1] + x + m[3]; if (k < 1) requestAnimationFrame(f); else n.textContent = t; })();
+  }
+  /* scroll reveal */
+  var rv = $$(M.reveal || '.au-sec .au-wrap > *, .au-idea, .au-pf-c, .au-mx-stats div');
+  rv.forEach(function(n){ n.classList.add('au-rv'); });
+  var cnt = $$(M.count || '.au-mx-stats b, .au-duo-stats b, .au-stat b');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (!e.isIntersecting) return; io.unobserve(e.target);
+      e.target.classList.add('au-in'); if (e.target._count) countUp(e.target); }); }, {rootMargin: '0px 0px -8% 0px'});
+    rv.forEach(function(n){ io.observe(n); });
+    cnt.forEach(function(n){ n._count = 1; io.observe(n); });
+  } else rv.forEach(function(n){ n.classList.add('au-in'); });
+
+  /* live walkthrough inside the three ad phones */
+  var stage = document.getElementById('duoStage'), data = document.getElementById('duoData'); if (!stage || !data) return;
+  var D = JSON.parse(data.textContent), F = D.flows, W = M.walk || {}, walk = {on: false, tok: 0};
+  var LABEL = W.button || '▶ Play the walkthrough in the phones';
+  var bar = document.createElement('div'); bar.className = 'au-walk';
+  bar.innerHTML = '<button type="button" id="walkBtn">' + LABEL + '</button><div class="au-walkbar" id="walkBar"><span id="walkTx"></span><i><b id="walkPr"></b></i></div>';
+  var head = $('#duo .au-duo-h'); head.parentNode.insertBefore(bar, head.nextSibling);
+  $$('.au-duo-fr').forEach(function(fr){ var f = document.createElement('div'); f.className = 'au-finger'; fr.appendChild(f); });
+  function frames(){ return F.map(function(f){ return $('#duoFr' + f.k + ' iframe'); }); }
+  function wait(ms, tk){ return new Promise(function(res, rej){ setTimeout(function(){ tk === walk.tok ? res() : rej('stop'); }, ms); }); }
+  function cap(t, p){ $('#walkTx').innerHTML = t; $('#walkPr').style.width = p + '%'; }
+  function vis(x){ return !!x && x.getClientRects().length > 0 && getComputedStyle(x).visibility !== 'hidden'; }
+  function target(i, which){
+    var fr = frames()[i], w = fr && fr.contentWindow; if (!w || !w.scr || !w.cur) return null;
+    var s = w.scr[w.cur], own = (W.taps || {})[w.cur], list = [];
+    if (own) list = (Array.isArray(own) ? own : [own]).map(function(q){ return $(q, s); });
+    else {
+      var picks = $$('[data-pick]:not([data-pick^="ad:"]),[data-toggle]', s).filter(vis);
+      if (picks.length && !picks.some(function(p){ return p.classList.contains('on'); })) list.push(picks[0]);
+      list.push($$('[data-go]:not([data-back]),[data-advance]', s).filter(vis).pop());
+    }
+    return list.filter(vis)[which] || null;
+  }
+  async function tap(i, el, tk){
+    var fr = frames()[i]; if (!el || !fr) return;
+    var box = fr.parentNode, f = $('.au-finger', box);
+    var b = box.getBoundingClientRect(), fb = fr.getBoundingClientRect(), sc = fb.width / fr.offsetWidth, r = el.getBoundingClientRect();
+    f.classList.add('on'); f.style.left = (fb.left - b.left + (r.left + r.width / 2) * sc) + 'px'; f.style.top = (fb.top - b.top + (r.top + r.height / 2) * sc) + 'px';
+    await wait(420, tk); f.classList.add('press'); await wait(130, tk); f.classList.remove('press');
+    /* answers are set in the phone's own state (no navigation); buttons are only pressed: the step bar moves every
+       phone together, so the three versions never race each other */
+    var w = fr.contentWindow, pk = el.dataset.pick, tg = el.dataset.toggle;
+    if (pk) { var p = pk.split(':'); w.S[p[0]] = p[1]; w.sync(); }
+    else if (tg) { var q = tg.split(':'), a = w.S[q[0]] = w.S[q[0]] || []; if (a.indexOf(q[1]) < 0) a.push(q[1]); w.sync(); }
+    await wait(120, tk);
+  }
+  function plain(s){ var d = document.createElement('div'); d.innerHTML = s || ''; return d.textContent; }
+  async function start(){
+    stop(); var tk = ++walk.tok; walk.on = true; $('#walkBtn').classList.add('on'); $('#walkBtn').textContent = '■ Stop'; $('#walkBar').classList.add('on'); bar.classList.add('on');
+    var steps = (D.steps || []).filter(function(s){ return s.id && (W.skip || ['today']).indexOf(s.id) < 0; }), n = steps.length;
+    var rows = {}; (D.rows || []).forEach(function(r){ rows[r.id] = r; });
+    try {
+      /* the phones' tops sit just under the sticky caption bar */
+      scrollTo({top: stage.getBoundingClientRect().top + scrollY - 190, behavior: RM ? 'auto' : 'smooth'});
+      for (var k = 0; k < n; k++) {
+        var s = steps[k], btn = $('#duoSteps button[data-id="' + s.id + '"]'); if (btn) btn.click();
+        cap((W.captions || {})[s.id] || ('<b>' + (btn ? btn.textContent : s.id) + '.</b> ' + (rows[s.id] ? 'Each ad gets its own version of this screen.' : (plain((D.stepCaps || {})[s.id]) || 'Same screen for every ad.'))), Math.round((k + 1) / (n + 1) * 100));
+        await wait(k ? 1500 : 2200, tk);
+        if (k === n - 1) break;
+        /* each phone taps through its own screen: an answer first if nothing is picked, then its button */
+        for (var pass = 0; pass < 2; pass++) {
+          var els = F.map(function(f, i){ return target(i, pass); });
+          if (!els.some(Boolean)) break;
+          await Promise.all(els.map(function(e, i){ return tap(i, e, tk); }));
+          await wait(300, tk);
+        }
+        $$('.au-finger').forEach(function(f){ f.classList.toggle('on', false); });
+      }
+      cap(W.end || 'That’s the three versions. Tap any phone, or a recommendation under it.', 100); await wait(2600, tk);
+    } catch (e) {}
+    stop();
+  }
+  function stop(){ if (!walk.on) return; walk.on = false; walk.tok++; $('#walkBtn').classList.remove('on'); $('#walkBtn').textContent = LABEL; $('#walkBar').classList.remove('on'); bar.classList.remove('on'); $$('.au-finger').forEach(function(f){ f.classList.remove('on'); }); }
+  $('#walkBtn').addEventListener('click', function(){ walk.on ? stop() : start(); });
+  document.addEventListener('pointerdown', function(e){ if (walk.on && e.isTrusted && !e.target.closest('#walkBtn') && e.target.closest('#duo')) stop(); }, true);
+  $$('[data-walk]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); start(); }); });
+})();
+/* MOTION:END */
+</script>
+<script type="application/json" id="motionData">{"hero": {"words": ["graduation", "birthday", "invitation", "invitation maker, cards & rsvp", "RSVP", "Create with AI", "Baby shower", "Wedding", "Graduate"], "icon": "assets/brand/appstore-icon.jpg", "stats": [["★ 4.9", "from 47K ratings on the US App Store"], ["33", "Apple Ads search terms you appear for (account-level)"], ["3", "versions of your onboarding, one per search"], ["1", "paywall every install meets today"]]}, "walk": {}, "heroWalk": "▶ Watch it play in the phones"}</script>
 </body>
 </html>
